@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<includes>
+	<include name="MoviesSubMenus">
+  <!--******************************* FILMS ******************************-->
+  <control type="group" id="6666">
+    <top>875</top>
+    <left>300</left>
+    <visible>Container(50).HasFocus(3) + !Control.HasFocus(10)</visible>
+    <animation effect="zoom" start="100,20" end="100,100" time="300">Visible</animation>
+    <animation effect="zoom" start="100,100" end="100,0" time="300">UnFocus</animation>    
+        
+        <control type="image">
+            <width>300</width>
+            <height>145</height>
+            <top>0</top>
+            <left>0</left>
+            <aspectratio>stretch</aspectratio>
+            <texture>menu_select.png</texture>
+          </control>
+    
+    
+	  <control type="WrapList" id="301">
+			<description>Home Wraplist</description>
+			<left>0</left>
+			<top>0</top>
+			<width>1200</width>
+			<height>145</height>
+			<onup>50</onup>
+			<ondown>50</ondown>
+			<onleft>50</onleft>
+			<onright>50</onright>
+      <orientation>vertical</orientation>
+			<focusposition>0</focusposition>
+			<scrolltime tween="sine" easing="out">300</scrolltime>
+			<itemlayout width="128" height="65">
+        <control type="image">
+            <width>64</width>
+            <height>64</height>
+            <aspectratio>stretch</aspectratio>
+            <texture>$INFO[ListItem.Thumb]</texture>
+        </control>
+        <control type="label">
+            <left>70</left>
+            <top>5</top>
+            <height>50</height>
+            <width>400</width>
+            <font>FontSubMenu</font>
+            <info>ListItem.Label</info>
+            <align>left</align>
+            <textcolor>Blanc</textcolor>
+        </control>
+      </itemlayout>
+			<focusedlayout width="298" height="65">
+        <control type="image">
+            <width>298</width>
+            <height>64</height>
+            <aspectratio>stretch</aspectratio>
+            <texture>menu.png</texture>
+            <visible>Control.HasFocus(301)</visible>
+         </control>
+        <control type="image">
+            <width>64</width>
+            <height>64</height>
+            <aspectratio>stretch</aspectratio>
+            <colordiffuse>Bleu</colordiffuse>
+            <texture>$INFO[ListItem.Thumb]</texture>
+            <visible>Control.HasFocus(301)</visible>
+         </control>       
+         <control type="label">
+            <left>70</left>
+            <top>5</top>
+				    <height>50</height>
+				    <width>400</width>
+				    <font>FontSubMenu</font>
+				    <info>ListItem.Label</info>
+				    <align>left</align>
+            <textcolor>Bleu</textcolor>
+            <visible>Control.HasFocus(301)</visible>
+				</control>
+        <!--unfocus-->
+        <control type="image">
+            <width>64</width>
+            <height>64</height>
+            <aspectratio>stretch</aspectratio>
+            <texture>$INFO[ListItem.Thumb]</texture>
+            <visible>!Control.HasFocus(301)</visible>
+         </control>       
+         <control type="label">
+            <left>70</left>
+            <top>5</top>
+            <height>50</height>
+            <width>400</width>
+            <font>FontSubMenu</font>
+            <info>ListItem.Label</info>
+            <align>left</align>
+            <textcolor>Blanc</textcolor>
+            <visible>!Control.HasFocus(301)</visible>
+        </control>
+    	</focusedlayout>
+      	<content>
+          <item id="3">
+            <label>Derniers</label>
+            <onclick>ActivateWindow(Videos,RecentlyAddedMovies,return)</onclick>
+            <thumb>icons/new49.png</thumb>
+          </item>
+          <item id="4">
+            <label>Genres</label>
+            <onclick>ActivateWindow(Videos,MovieGenres,return)</onclick>
+            <thumb>icons/darth.png</thumb>
+          </item>  
+          <item id="5">
+            <label>Sagas</label>
+            <onclick>ActivateWindow(Videos,MovieSets,return)</onclick>
+            <thumb></thumb>
+          </item> 
+				  <item id="100">
+        	  <description>HD</description>
+					  <label>Films HD</label>
+            <thumb>icons/HD.png</thumb>
+            <onclick>XBMC.ActivateWindow(10025,special://skin/playlists/HDMovies.xsp,return)</onclick>
+       	  </item>
+        <item id="200">
+       	<description>Rafraichir</description>
+					<label>Rafraichir</label>
+          <thumb>icons/refresh.png</thumb>
+          <onclick>UpdateLibrary(video)</onclick>
+       	</item>
+         <item id="300">
+						<description>custom1</description>
+						<label>$INFO[Skin.String(custom1_Playlist_Label)]</label>
+						<thumb>$INFO[Skin.String(custom1_Playlist_Icon)]</thumb>
+						<onclick>XBMC.ActivateWindow(10025,$INFO[Skin.String(custom1_Playlist_Path)],return)</onclick>
+            <visible>Skin.HasSetting(Use_custom1_Playlist)</visible>
+					</item>
+          <item id="400">
+						<description>custom2</description>
+						<label>$INFO[Skin.String(custom2_Playlist_Label)]</label>
+						<thumb>$INFO[Skin.String(custom2_Playlist_Icon)]</thumb>
+						<onclick>XBMC.ActivateWindow(10025,$INFO[Skin.String(custom2_Playlist_Path)],return)</onclick>
+            <visible>Skin.HasSetting(Use_custom2_Playlist)</visible>
+					</item>
+          <item id="500">
+						<description>custom3</description>
+						<label>$INFO[Skin.String(custom3_Playlist_Label)]</label>
+						<thumb>$INFO[Skin.String(custom3_Playlist_Icon)]</thumb>
+						<onclick>XBMC.ActivateWindow(10025,$INFO[Skin.String(custom3_Playlist_Path)],return)</onclick>
+            <visible>Skin.HasSetting(Use_custom3_Playlist)</visible>
+					</item>
+          <item id="600">
+						<description>custom4</description>
+						<label>$INFO[Skin.String(custom4_Playlist_Label)]</label>
+						<thumb>$INFO[Skin.String(custom4_Playlist_Icon)]</thumb>
+						<onclick>XBMC.ActivateWindow(10025,$INFO[Skin.String(custom4_Playlist_Path)],return)</onclick>
+            <visible>Skin.HasSetting(Use_custom4_Playlist)</visible>
+					</item>
+			</content>
+		</control>
+     
+	</control>
+<!--***************************** FIN SOUS MENU FILMS ****************************-->
+	</include>
+</includes>

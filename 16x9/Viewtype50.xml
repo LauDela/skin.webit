@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="Viewtype50">
+
+		<control type="group">
+		    <animation effect="slide" start="-300,0" end="0,0" time="600" condition="Control.HasFocus(501) | Control.HasFocus(800) | Control.HasFocus(9002)" easing="out">conditional</animation>
+                    <visible>Control.IsVisible(50)</visible>
+                    <control type="image">
+                        <left>790</left>
+                        <top>100</top>
+                        <width>1900</width>
+                        <height>1080</height>
+                        <texture>gris.png</texture>
+                        <aspectratio>stretch</aspectratio>
+                    </control>
+                    <control type="image">
+                        <left>790</left>
+                        <top>100</top>
+                        <width>20</width>
+                        <height>1080</height>
+                        <texture>ombreV.png</texture>
+                        <aspectratio>stretch</aspectratio>
+                    </control>
+
+                    <control type="image">
+                        <left>400</left>
+                        <top>100</top>
+                        <width>400</width>
+                        <height>1080</height>
+                        <texture>menu.png</texture>
+                        <aspectratio>stretch</aspectratio>
+                    </control>
+                    <control type="list" id="50">
+                        <left>400</left>
+                        <top>95</top>
+                        <width>400</width>
+                        <height>1080</height>
+                        <onup></onup>
+                        <ondown></ondown>
+                        <onleft>501</onleft>
+                        <!--
+                        <onright condition="Container(501).HasFocus(3)">SetFocus(800)</onright> movies-->
+                        <!--<onright condition="Container(501).HasFocus(6)">SetFocus(800)</onright> music-->
+                        
+                        <onright>3001</onright>
+                        <focusposition>0</focusposition>
+                        <defaultcontrol>3</defaultcontrol>
+                        <orientation>vertical</orientation>
+                        <viewtype label="535">list</viewtype>
+                        <scrolltime>0</scrolltime>
+                        <pagecontrol>11</pagecontrol>
+                        <itemlayout width="401" height="100">
+                            <control type="group">
+                    
+                                <control type="image">
+                                    <left>10</left>
+                                    <top>10</top>
+                                    <width>80</width>
+                                    <height>80</height>
+                                    <texture>$INFO[ListItem.thumb]</texture>
+                                    <aspectratio>keep</aspectratio>
+                                </control>
+                                <control type="image">
+                                    <left>300</left>
+                                    <top>70</top>
+                                    <width></width>
+                                    <height>20</height>
+                                    <aspectratio>keep</aspectratio>
+                                    <texture>rating/$INFO[ListItem.StarRating]</texture>
+                                    <colordiffuse>Jaune</colordiffuse>
+                                </control>
+                                <!-- Watched status-->
+				<control type="image">
+                                    <left>365</left>
+                                    <top>7</top>
+                                    <width>25</width>
+                                    <height>49</height>
+                                    <texture>$VAR[StatusOverlayWide]</texture>                                    
+				</control>
+                                <control type="label">
+                                    <left>100</left>
+                                    <top>7</top>
+                                    <width>300</width>
+                                    <height>80</height>
+                                    <label>$INFO[ListItem.Label]</label>
+                                    <font>Font20</font>
+                                    <textcolor>Blanc</textcolor>
+                                    <align>left</align>
+                                </control>
+                                <control type="label">
+                                    <left>100</left>
+                                    <top>30</top>
+                                    <width>300</width>
+                                    <height>80</height>
+                                    <label>$INFO[ListItem.Label2]</label>
+                                    <font>Font15</font>
+                                    <textcolor>Blanc</textcolor>
+                                    <align>left</align>
+                                </control>
+                                <control type="image">
+                                    <left>0</left>
+                                    <top>0</top>
+                                    <width>400</width>
+                                    <height>1</height>
+                                    <texture>menu_select.png</texture>
+                                    <aspectratio>strecht</aspectratio>
+                                </control>
+                            </control>
+                        </itemlayout>
+
+                        <focusedlayout width="401" height="100">
+                            <control type="image">
+                                <left>0</left>
+                                <top>0</top>
+                                <width>400</width>
+                                <height>100</height>
+                                <texture>menu_select.png</texture>
+                                <aspectratio>strecht</aspectratio>
+                                <visible>Control.HasFocus(50) | Control.HasFocus(9002) | Control.HasFocus(800)</visible>
+                            </control>
+                            <control type="image">
+                                <left>0</left>
+                                <top>0</top>
+                                <width>5</width>
+                                <height>100</height>
+                                <texture>vert.png</texture>
+                                <aspectratio>strecht</aspectratio>
+                                <visible>!Control.HasFocus(50) + !Control.HasFocus(9002) + !Control.HasFocus(800)</visible>
+                            </control>
+                            <control type="image">
+                                <left>10</left>
+                                <top>10</top>
+                                <width>80</width>
+                                <height>80</height>
+                                <texture>$INFO[ListItem.thumb]</texture>
+                                <aspectratio>keep</aspectratio>
+                            </control>
+                            <control type="image">
+                                <left>300</left>
+                                <top>70</top>
+                                <width></width>
+                                <height>20</height>
+                                <aspectratio>keep</aspectratio>
+                                <texture>rating/$INFO[ListItem.StarRating]</texture>
+                                <colordiffuse>Jaune</colordiffuse>
+                            </control>
+                            <!-- Watched status-->
+                            <control type="image">
+                                <left>365</left>
+                                <top>7</top>
+                                <width>25</width>
+                                <height>49</height>
+                                <texture>$VAR[StatusOverlayWide]</texture>                                    
+                            </control>
+
+                            <control type="label">
+                                <left>100</left>
+                                <top>7</top>
+                                <width>300</width>
+                                <height>80</height>
+                                <label>$INFO[ListItem.Label]</label>
+                                <font>Font20</font>
+                                <textcolor>Blanc</textcolor>
+                                <align>left</align>
+                            </control>
+                            <control type="label">
+                                <left>100</left>
+                                <top>30</top>
+                                <width>300</width>
+                                <height>80</height>
+                                <label>$INFO[ListItem.Label2]</label>
+                                <font>Font15</font>
+                                <textcolor>Blanc</textcolor>
+                                <align>left</align>
+                            </control>
+
+
+                        </focusedlayout>
+
+                    </control>
+                    <control type="scrollbar" id="11">
+			<centerleft>50%</centerleft>
+			<top>100</top>
+			<left>400</left>
+			<width>3</width>
+			<height>978</height>
+			<onup>50</onup>
+			<showonepage>false</showonepage>
+			<orientation>vertical</orientation>
+			<texturesliderbackground>gris.png</texturesliderbackground>
+                        <textureslidernib>Vert100.png</textureslidernib>
+                        <textureslidernibfocus></textureslidernibfocus>
+                        <texturesliderbar></texturesliderbar>
+                        <texturesliderbarfocus></texturesliderbarfocus>
+			<showonepage>true</showonepage>
+			<visible>Control.HasFocus(50)</visible>
+                    </control>
+                    <!--********************* DETAILS ************************ -->
+                    <control type="group">
+                        <left>850</left>
+                        <top>0</top>
+                        <control type="image">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>500</width>
+                            <height></height>
+                            <texture>$INFO[ListItem.thumb]</texture>
+                            <aspectratio>keep</aspectratio>
+                        </control>
+                        <control type="label">
+                            <left>500</left>
+                            <top>100</top>
+                            <width>auto</width>
+                            <height>80</height>
+                            <label>$INFO[ListItem.Label]</label>
+                            <font>FontH42</font>
+                            <textcolor>Noir</textcolor>
+                            <align>left</align>
+                        </control>
+                    
+                    
+                    
+                    
+                    
+                    
+                </control>
+
+                </control>
+                
+                
+
+                    
+        </include>
+</includes>

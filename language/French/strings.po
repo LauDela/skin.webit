@@ -1,0 +1,263 @@
+# XBMC Media Center language file
+# Addon Name: 101
+# Addon id: skin.101
+# Addon Provider: LauDela
+msgid ""
+msgstr ""
+"Project-Id-Version: XBMC Main\n"
+"Report-Msgid-Bugs-To: http://trac.xbmc.org/\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: XBMC Translation Team\n"
+"Language-Team: English (http://www.transifex.com/projects/p/xbmc-main/language/en/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#Misc labels
+
+msgctxt "#31000"
+msgid "Elément"
+msgstr ""
+
+msgctxt "#31001"
+msgid "Eléments"
+msgstr ""
+
+msgctxt "#31002"
+msgid "Tag"
+msgstr ""
+
+msgctxt "#31003"
+msgid "Affichage"
+msgstr ""
+
+msgctxt "#31004"
+msgid "Disposition"
+msgstr ""
+
+msgctxt "#31005"
+msgid "Scrollbars"
+msgstr ""
+
+msgctxt "#31006"
+msgid "Overlays"
+msgstr ""
+
+msgctxt "#31007"
+msgid "System music files"
+msgstr ""
+
+msgctxt "#31008"
+msgid "Sélection courante"
+msgstr ""
+
+msgctxt "#31009"
+msgid "Ouvrir playlist"
+msgstr ""
+
+msgctxt "#31010"
+msgid "Enregistrer playlist"
+msgstr ""
+
+msgctxt "#31011"
+msgid "Fermer playlist"
+msgstr ""
+
+msgctxt "#31012"
+msgid "Playlist en cours"
+msgstr ""
+
+msgctxt "#31013"
+msgid "Sourdine"
+msgstr ""
+
+msgctxt "#31014"
+msgid "Voir visualisation & diaporama artiste"
+msgstr ""
+
+msgctxt "#31015"
+msgid "Live TV"
+msgstr ""
+
+msgctxt "#31016"
+msgid "Niveau de configuration"
+msgstr ""
+
+msgctxt "#31017"
+msgid "Vote pris en compte"
+msgstr ""
+
+msgctxt "#31018"
+msgid "Monter"
+msgstr ""
+
+msgctxt "#31019"
+msgid "Descendre"
+msgstr ""
+
+msgctxt "#31020"
+msgid "Arrière plan"
+msgstr ""
+
+msgctxt "#31021"
+msgid "Sous Menus Acceuil"
+msgstr ""
+
+msgctxt "#31022"
+msgid "Couleur d'arrière plan"
+msgstr ""
+
+msgctxt "#31023"
+msgid "Bleu"
+msgstr ""
+
+msgctxt "#31024"
+msgid "Vert"
+msgstr ""
+
+msgctxt "#31025"
+msgid "Violet"
+msgstr ""
+
+msgctxt "#31026"
+msgid "Rouge"
+msgstr ""
+
+msgctxt "#31027"
+msgid "Monter vidéo en arrière plan"
+msgstr ""
+
+msgctxt "#31028"
+msgid "Montrer animation en arrière plan"
+msgstr ""
+
+msgctxt "#31029"
+msgid "Sous Menu Films"
+msgstr ""
+
+msgctxt "#31030"
+msgid "Activer courbes"
+msgstr ""
+
+msgctxt "#31031"
+msgid "Films Recents"
+msgstr ""
+
+msgctxt "#31032"
+msgid "Films en cours"
+msgstr ""
+
+msgctxt "#31033"
+msgid "Sous menu Series TV"
+msgstr ""
+
+msgctxt "#31034"
+msgid "Activer diaporama Artiste"
+msgstr ""
+
+msgctxt "#31035"
+msgid "Nouveaux Episodes"
+msgstr ""
+
+msgctxt "#31036"
+msgid "Séries TV en cours"
+msgstr ""
+
+msgctxt "#31037"
+msgid "Sous menu Albums"
+msgstr ""
+
+msgctxt "#31038"
+msgid "Nouveaux albums"
+msgstr ""
+
+msgctxt "#31039"
+msgid "Albums populaires"
+msgstr ""
+
+msgctxt "#31040"
+msgid "Cacher logo Conq"
+msgstr ""
+
+msgctxt "#31041"
+msgid "Debug grid"
+msgstr ""
+
+msgctxt "#31042"
+msgid "Debug labels"
+msgstr ""
+
+msgctxt "#31043"
+msgid "Extra art"
+msgstr ""
+
+msgctxt "#31044"
+msgid "Sous titre local trouvé!"
+msgstr ""
+
+msgctxt "#31045"
+msgid "Fournit par"
+msgstr ""
+
+msgctxt "#31046"
+msgid "Actuellement"
+msgstr ""
+
+msgctxt "#31047"
+msgid "Visualisation Presets"
+msgstr ""
+
+msgctxt "#31048"
+msgid "Playlist Options"
+msgstr ""
+
+msgctxt "#31049"
+msgid "Eléments Accueil"
+msgstr ""
+
+msgctxt "#31050"
+msgid "Cacher"
+msgstr ""
+
+msgctxt "#31051"
+msgid "Settings can be accessed from the Shutdown menu or by rebooting XBMC!"
+msgstr ""
+
+msgctxt "#31052"
+msgid "Vote"
+msgstr ""
+
+msgctxt "#31053"
+msgid "Cacher titres sous menu"
+msgstr ""
+
+msgctxt "#31054"
+msgid "Films aléatoires"
+msgstr ""
+
+msgctxt "#31055"
+msgid "Episodes aléatoires"
+msgstr ""
+
+msgctxt "#31056"
+msgid "Albums aléatoires"
+msgstr ""
+
+msgctxt "#31057"
+msgid "Kiosk mode"
+msgstr ""
+
+msgctxt "#31058"
+msgid "Reset all Conq settings"
+msgstr ""
+
+msgctxt "#31059"
+msgid "Memoire utilisée:"
+msgstr ""
+
+msgctxt "#31060"
+msgid "Activer titres"
+msgstr ""

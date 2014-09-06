@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="Viewtype53">
+
+		<control type="group">
+			<visible>Container.Content(artists)| Container.Content(albums)</visible>
+
+
+ 			<control type="image">
+    			<left>400</left>
+    			<top>497</top>
+    			<width>1920</width>
+    			<height>800</height>
+    			<texture>blanc.png</texture>
+    			<aspectratio>strecht</aspectratio>
+  			</control>
+
+			<!-- Wide list -->
+			<control type="panel" id="53">
+				<left>450</left>
+				<top>500</top>
+				<width>1418</width>
+				<height>600</height>
+				<onup condition="!Skin.HasSetting(KioskMode)">3001</onup>
+				<ondown>501</ondown>
+				<onleft>501</onleft>
+				<onright>52</onright>
+				<pagecontrol>61</pagecontrol>
+				<preloaditems>4</preloaditems>
+				<focusposition>1</focusposition>
+				<orientation>vertical</orientation>
+				<viewtype label="539">list</viewtype>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>Container.Content(artists)| Container.Content(albums)</visible>
+
+				<itemlayout width="280" height="350">
+
+					<control type="group">
+						<visible>!SubString(ListItem.Icon,Default)</visible>
+
+						<control type="image">
+							<left>0</left>
+							<top>50</top>
+							<width>260</width>
+							<height>260</height>
+							<texture background="true">$INFO[ListItem.Thumb]</texture>
+							<aspectratio align="center">stretch</aspectratio>
+						</control>
+
+						<control type="image">
+							<left>0</left>
+							<top>50</top>
+							<width>260</width>
+							<height>260</height>
+							<texture background="true">gris01t.png</texture>
+							<aspectratio align="center">stretch</aspectratio>
+						</control>
+
+						<control type="label">
+							<left>0</left>
+							<top>310</top>
+							<width>260</width>
+							<height>27</height>
+							<font>Font15</font>
+							<align>left</align>
+							<label>[B]$INFO[ListItem.Label][/B]</label>
+							<textcolor>Noir</textcolor>
+						</control>
+						<control type="label">
+							<left>0</left>
+							<top>330</top>
+							<width>170</width>
+							<height>27</height>
+							<font>Font15</font>
+							<align>left</align>
+							<label>$INFO[ListItem.Year]</label>
+							<textcolor>Gris</textcolor>
+						</control>
+						<control type="image">
+			 				<left>10</left>
+			 				<top>330</top>
+			 				<width></width>
+			 				<height>30</height>
+			 				<aspectratio >keep</aspectratio>
+			 				<texture>rating/$INFO[ListItem.StarRating]</texture>
+			 				<colordiffuse>Gris</colordiffuse>
+			 				<visible>Control.IsVisible(501) + !IsEmpty(ListItem.Title) + [Container.Content(music) | Container.Content(albums)]</visible>
+						</control>
+
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="280" height="350">
+
+					<control type="group">
+						<control type="image">
+							<left>60</left>
+							<top>-20</top>
+							<width>140</width>
+							<height>70</height>
+							<texture background="true">fleche.png</texture>
+							<aspectratio align="center">stretch</aspectratio>
+							<visible>!Container(53).Scrolling</visible>
+						</control>
+						<control type="image">
+							<left>0</left>
+							<top>50</top>
+							<width>260</width>
+							<height>260</height>
+							<texture background="true">$INFO[ListItem.Thumb]</texture>
+							<aspectratio align="center">stretch</aspectratio>
+						</control>
+
+						<control type="label">
+							<left>0</left>
+							<top>310</top>
+							<width>260</width>
+							<height>27</height>
+							<font>Font15</font>
+							<align>left</align>
+							<label>[B]$INFO[ListItem.Label][/B]</label>
+							<textcolor>Noir</textcolor>
+						</control>
+
+						<control type="label">
+							<left>0</left>
+							<top>330</top>
+							<width>170</width>
+							<height>27</height>
+							<font>Font15</font>
+							<align>left</align>
+							<label>$INFO[ListItem.Year]</label>
+							<textcolor>Gris</textcolor>
+						</control>
+
+						<control type="image">
+			 				<left>10</left>
+			 				<top>330</top>
+			 				<width></width>
+			 				<height>30</height>
+			 				<aspectratio >keep</aspectratio>
+			 				<texture>rating/$INFO[ListItem.StarRating]</texture>
+			 				<colordiffuse>Gris</colordiffuse>
+			 				<visible>Control.IsVisible(501) + !IsEmpty(ListItem.Title) + [Container.Content(music) | Container.Content(albums)]</visible>
+						</control>
+
+					</control>
+				</focusedlayout>
+
+			</control>
+
+			 <control type="image">
+        	<left>400</left>
+        	<top>455</top>
+        	<width>1600</width>
+        	<height>80</height>
+        	<texture>menu.png</texture>
+        	<aspectratio>strecht</aspectratio>
+      </control>
+
+			<control type="group">
+				<centerleft>50%</centerleft>
+				<top>85</top>
+				<left>400</left>
+				<width>1920</width>
+				<height>100</height>
+
+				<!-- Details -->
+				<control type="label">
+					<left>50</left>
+					<top>390</top>
+					<width>1740</width>
+					<height>27</height>
+					<font>Font48</font>
+					<align>left</align>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>Blanc</textcolor>
+				</control>
+
+				<control type="image">
+	 				<left>730</left>
+	 				<top>385</top>
+	 				<width></width>
+	 				<height>50</height>
+	 				<aspectratio >keep</aspectratio>
+	 				<texture>rating/$INFO[ListItem.StarRating]</texture>
+	 				<colordiffuse>Jaune</colordiffuse>
+	 				<visible>Control.IsVisible(501) + !IsEmpty(ListItem.Title) + [Container.Content(albums) | Container.Content(artists)]</visible>
+				</control>
+				<!--Fanart-->
+				<control type="image">
+					<left>0</left>
+					<top>15</top>
+					<width>600</width>
+					<height>355</height>
+					<include>VisibleFadeAnimation</include>
+					<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+					<aspectratio>stetch</aspectratio>
+				</control>
+
+				<control type="image">
+					<left>600</left>
+					<top>15</top>
+					<width>5</width>
+					<height>355</height>
+					<texture background="true">Vert.png</texture>
+					<aspectratio>stetch</aspectratio>
+				</control>
+
+				<!-- Plot -->
+				<control type="textbox"> <!--plot-->
+					<left>615</left>
+					<top>30</top>
+					<width>480</width>
+			 		<height>330</height>
+					<font>Font30</font>
+					<label>$INFO[ListItem.Property(Artist_Description)]</label>
+				</control>
+
+				<control type="image">
+        	<left>1445</left>
+					<top>20</top>
+					<width>50</width>
+					<height>50</height>
+					<aspectratio>keep</aspectratio>
+			    <texture>$INFO[ListItem.Country,extras/flags/,.png]</texture>
+			    <visible>!IsEmpty(ListItem.Country)</visible>
+    		</control>
+        		<control type="label">
+					<left>1420</left>
+					<top>25</top>
+					<width>100</width>
+					<height>100</height>
+					<font>Font20</font>
+					<align>center</align>
+					<textcolor>Blanc</textcolor>
+					<label>Pays</label>
+					<visible>!IsEmpty(ListItem.Country)</visible>
+				</control>
+
+				<control type="image">
+		      <left>1435</left>
+					<top>100</top>
+					<width>70</width>
+					<height>70</height>
+					<aspectratio>stretch</aspectratio>
+				  <texture>$INFO[ListItem.VideoResolution,extras/videoflags/,.png]</texture>
+        	<visible>!IsEmpty(ListItem.VideoResolution)</visible>
+        </control>
+        <control type="label">
+					<left>1420</left>
+					<top>110</top>
+					<width>100</width>
+					<height>100</height>
+					<font>Font20</font>
+					<align>center</align>
+					<textcolor>Blanc</textcolor>
+					<label>Vidéo</label>
+					<visible>!IsEmpty(ListItem.VideoResolution)</visible>
+				</control>
+
+				<control type="image">
+		     	<left>1435</left>
+					<top>180</top>
+					<width>70</width>
+					<height>70</height>
+					<aspectratio>stretch</aspectratio>
+				  <texture>$INFO[ListItem.AudioCodec,extras/audioflags/,.png]</texture>
+        	<visible>!IsEmpty(ListItem.AudioCodec)</visible>
+        </control>
+
+        <control type="label">
+					<left>1420</left>
+					<top>190</top>
+					<width>100</width>
+					<height>100</height>
+					<font>Font20</font>
+					<align>center</align>
+					<textcolor>Blanc</textcolor>
+					<label>Son</label>
+					<visible>!IsEmpty(ListItem.AudioCodec)</visible>
+				</control>
+
+
+				<control type="image">
+		     	<left>1435</left>
+					<top>275</top>
+					<width>70</width>
+					<height>70</height>
+					<aspectratio>stretch</aspectratio>
+				  <texture>$INFO[ListItem.MPAA,extras/rating/,.png]</texture>
+				  <colordiffuse>Blanc</colordiffuse>
+        	<visible>!IsEmpty(ListItem.MPAA)</visible>
+        </control>
+        <control type="label">
+					<left>1420</left>
+					<top>305</top>
+					<width>100</width>
+					<height>100</height>
+  				<font>Font20</font>
+					<align>center</align>
+					<textcolor>Blanc</textcolor>
+					<label>Age</label>
+					<visible>!IsEmpty(ListItem.MPAA)</visible>
+				</control>
+				<!--Studio-->
+				<control type="image">
+		     	<left>1435</left>
+					<top>375</top>
+					<width>70</width>
+					<height>70</height>
+					<aspectratio>keep</aspectratio>
+				  <texture>$INFO[ListItem.Studio,extras/studioflags/,.png]</texture>
+				  <colordiffuse>Blanc</colordiffuse>
+        	<visible>!IsEmpty(ListItem.MPAA)</visible>
+        </control>
+
+
+				<!-- Details -->
+				<control type="label">
+					<left>615</left>
+					<top>335</top>
+					<width>800</width>
+					<height>27</height>
+					<font>Font27</font>
+					<align>left</align>
+					<label>$VAR[Label2]</label>
+					<textcolor>Blanc</textcolor>
+				</control>
+
+				<control type="label">
+					<left>1100</left>
+					<top>50</top>
+					<width>200</width>
+					<height>200</height>
+					<font>Font20</font>
+					<align>left</align>
+					<textcolor>Blanc</textcolor>
+					<label>Duréé : $INFO[ListItem.Duration] min</label>
+					<visible>!IsEmpty(ListItem.Duration)</visible>
+				</control>
+				<control type="label">
+					<left>1100</left>
+					<top>70</top>
+					<width>400</width>
+					<height>200</height>
+					<font>Font20</font>
+					<align>left</align>
+					<textcolor>Blanc</textcolor>
+					<label>Réalisateur : $INFO[ListItem.Director]</label>
+					<visible>!IsEmpty(ListItem.Director)</visible>
+				</control>
+				<control type="label">
+					<left>1100</left>
+					<top>90</top>
+					<width>400</width>
+					<height>200</height>
+					<font>Font20</font>
+					<align>left</align>
+					<textcolor>Blanc</textcolor>
+					<label>Scénario : $INFO[ListItem.Writer]</label>
+					<visible>!IsEmpty(ListItem.Writer)</visible>
+				</control>
+
+
+			</control>
+
+			<control type="scrollbar" id="61">
+				<centerleft>50%</centerleft>
+				<top>556</top>
+				<left>390</left>
+				<width>10</width>
+				<height>540</height>
+				<onup>50</onup>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+				<texturesliderbackground>menu.png</texturesliderbackground>
+    			<textureslidernib>Vert100.png</textureslidernib>
+    			<textureslidernibfocus></textureslidernibfocus>
+    			<texturesliderbar></texturesliderbar>
+    			<texturesliderbarfocus></texturesliderbarfocus>
+				<showonepage>true</showonepage>
+				<visible>!Skin.HasSetting(Scrollbars) + Control.HasFocus(53)</visible>
+				<animation effect="slide" end="0,-22" condition="Skin.HasSetting(ShowCurve)">Conditional</animation>
+			</control>
+
+		</control>
+
+
+	</include>
+	<include>Menus</include>
+
+</includes>

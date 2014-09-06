@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon
+	id="skin.webit"
+	version="0.1"
+	name="Webit"
+	provider-name="LauDela">
+	<requires>
+		<import addon="xbmc.gui" version="5.0.1"/>
+		<import addon="script.favourites" version="5.0.2"/>
+		<import addon="service.library.data.provider" version="0.0.3"/>
+	</requires>
+	<extension point="xbmc.gui.skin" defaultthemename="Textures.xbt" effectslowdown="1.00" debugging="false">
+		<res width="1920" height="1080" aspect="16:9" default="true" folder="16x9" />
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<summary>A simple skin based on recent web interfaces</summary>
+		<disclaimer>Mouse and Touch device not supported</disclaimer>
+		<description>Based on Hitcher skin Conq</description>
+	</extension>
+</addon>
