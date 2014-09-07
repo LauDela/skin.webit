@@ -32,7 +32,7 @@
 			<!--<onup>66</onup>-->
 			<ondown>501</ondown>
 			<onleft>501</onleft>
-			<onright>3001</onright>
+			<onright>199</onright>
 			<pagecontrol>61</pagecontrol>
 			<preloaditems>4</preloaditems>
 			<focusposition>1</focusposition>
@@ -660,6 +660,51 @@
                         <angle>90</angle>
                         <textcolor>Noir</textcolor>
                     </control>
+                    
+                    
+                    <!-- Main group -->
+			<control type="grouplist">
+				<left>2090</left>
+				<top>600</top>
+					<!-- View -->
+					<control type="togglebutton" id="199">
+						<width>70</width>
+                                                <height>70</height>
+						<onclick>Container.NextViewMode</onclick>
+                                                <onleft>52</onleft>
+                                                <texturefocus colordiffuse="Noir">119.png</texturefocus>
+                                                <texturenofocus colordiffuse="Gris">119.png</texturenofocus>
+                                                <alttexturefocus colordiffuse="Noir">120.png</alttexturefocus>
+                                                <alttexturenofocus colordiffuse="Gris">120.png</alttexturenofocus>
+                                                <usealttexture>Control.IsVisible(50)</usealttexture>
+					</control>
+				<!-- Layout controls -->
+					<!-- Dummy to set focus to top -->
+					
+					<!-- Sort by -->
+					<control type="button" id="3">
+						<include>OptionButtons</include>
+						<label>103</label>
+						<visible>Control.IsEnabled(3)</visible>
+                                                <onleft>52</onleft>
+					</control>
+					<!-- Sort ascending/descending -->
+					<control type="togglebutton" id="4">
+                                                <width>70</width>
+                                                <height>70</height>
+                                                <onleft>52</onleft>
+                                                <texturefocus colordiffuse="Noir">sort12.png</texturefocus>
+                                                <texturenofocus colordiffuse="Gris">sort12.png</texturenofocus>
+                                                <alttexturefocus colordiffuse="Noir">sort8.png</alttexturefocus>
+                                                <alttexturenofocus colordiffuse="Gris">sort8.png</alttexturenofocus>
+						<usealttexture>Container.SortDirection(Descending)</usealttexture>
+						<visible>Control.IsEnabled(4)</visible>
+					</control>
+			</control>
+                    
+                    
+                    
+                    
 		</control>
                 <control type="group">
                     <visible>[IsEmpty(ListItem.Title)+ [Container.Content(movies) | Container.Content(tvshows)]] | [IsEmpty(ListItem.Artist)+ [Container.Content(artists)]] | [IsEmpty(ListItem.Albums)+ [Container.Content(albums)]]</visible>

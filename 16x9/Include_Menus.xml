@@ -521,7 +521,7 @@
             <control type="image">
 		<left>0</left>
 		<top>1075</top>
-		<width>1920</width>
+		<width>3000</width>
 		<height>5</height>
 		<texture>rouge2.png</texture>
 		<aspectratio>strecht</aspectratio>

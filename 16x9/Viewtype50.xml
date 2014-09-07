@@ -220,11 +220,18 @@
                     
                     
                     
+                    <control type="image">
+                        <top>100</top>
+                        <left>1250</left>
+                        <width>200</width>
+    			<height>1000</height>
+    			<texture>blanc.png</texture>
+    			<aspectratio>strecht</aspectratio>
+                    </control>
                     
                     
                     
                 </control>
-
                 </control>
                 
                 
