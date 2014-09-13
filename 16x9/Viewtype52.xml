@@ -6,25 +6,26 @@
                     <top>0</top>
                     <width>1920</width>
                     <height>1080</height>
-                    <texture background="true">bg12.jpg</texture>
+                    <texture background="true">blanc.png</texture>
                     <aspectratio>strecht</aspectratio>
                 </control>
 		<control type="group">
+                    <left>400</left>
                     <visible>Control.IsVisible(52)</visible>
-		    <animation effect="slide" start="-300,0" end="0,0" time="400" condition="Control.HasFocus(501) | Control.HasFocus(800) | Control.HasFocus(9002)" easing="out">conditional</animation>
-                    
+		    <animation effect="slide" start="0,0" end="-300,0" time="300" condition="Control.HasFocus(52) | Control.HasFocus(199) | Control.HasFocus(3) | Control.HasFocus(4)">conditional</animation>
+                    <!--
                     <control type="image">
-    			<left>400</left>
+    			<left>0</left>
     			<top>497</top>
     			<width>1920</width>
     			<height>800</height>
     			<texture>blanc.png</texture>
     			<aspectratio>strecht</aspectratio>
                     </control>
-                    
+                    -->
                     <!-- Wide list -->
                     <control type="panel" id="52">
-			<left>460</left>
+			<left>60</left>
 			<top>500</top>
 			<width>1750</width>
 			<height>600</height>
@@ -118,7 +119,7 @@
                         <itemlayout width="280" height="350" condition="Container.Content(artists)| Container.Content(albums)">    <!--MUSIC -->
                             
                             <control type="group">
-				<visible>!SubString(ListItem.Icon,Default)</visible>
+				<!--<visible>!SubString(ListItem.Icon,Default)</visible>-->
 
 				<control type="image">
                                     <left>0</left>
@@ -304,7 +305,7 @@
                     </control>
 
                     <control type="image">
-                        <left>400</left>
+                        <left>0</left>
                         <top>455</top>
                         <width>1900</width>
                         <height>80</height>
@@ -315,7 +316,7 @@
                     <control type="group">
                         <centerleft>50%</centerleft>
 			<top>85</top>
-			<left>400</left>
+			<left>0</left>
 			<width>1920</width>
 			<height>100</height>
 			<!-- Details -->
@@ -633,7 +634,7 @@
                     <control type="scrollbar" id="61">
 			<centerleft>50%</centerleft>
 			<top>556</top>
-			<left>400</left>
+			<left>0</left>
 			<width>10</width>
 			<height>540</height>
 			<onup>50</onup>
@@ -663,9 +664,9 @@
                     
                     
                     <!-- Main group -->
-			<control type="grouplist">
-				<left>2090</left>
-				<top>600</top>
+			<control type="grouplist" id="6000">
+				<left>1735</left>
+				<top>550</top>
 					<!-- View -->
 					<control type="togglebutton" id="199">
 						<width>70</width>
@@ -679,17 +680,21 @@
                                                 <usealttexture>Control.IsVisible(50)</usealttexture>
 					</control>
 				<!-- Layout controls -->
-					<!-- Dummy to set focus to top -->
 					
 					<!-- Sort by -->
 					<control type="button" id="3">
-						<include>OptionButtons</include>
+                                                <width>80</width>
+                                                <font>Font15</font>
+                                                <textcolor>Gris</textcolor>
+                                                <focusedcolor>Noir</focusedcolor>
 						<label>103</label>
 						<visible>Control.IsEnabled(3)</visible>
                                                 <onleft>52</onleft>
+                                                
 					</control>
 					<!-- Sort ascending/descending -->
 					<control type="togglebutton" id="4">
+                                                
                                                 <width>70</width>
                                                 <height>70</height>
                                                 <onleft>52</onleft>
@@ -698,7 +703,6 @@
                                                 <alttexturefocus colordiffuse="Noir">sort8.png</alttexturefocus>
                                                 <alttexturenofocus colordiffuse="Gris">sort8.png</alttexturenofocus>
 						<usealttexture>Container.SortDirection(Descending)</usealttexture>
-						<visible>Control.IsEnabled(4)</visible>
 					</control>
 			</control>
                     
@@ -708,21 +712,24 @@
 		</control>
                 <control type="group">
                     <visible>[IsEmpty(ListItem.Title)+ [Container.Content(movies) | Container.Content(tvshows)]] | [IsEmpty(ListItem.Artist)+ [Container.Content(artists)]] | [IsEmpty(ListItem.Albums)+ [Container.Content(albums)]]</visible>
+                    <animation effect="slide" start="-1900,0" end="0,0" time="300">Visible</animation>
+                    <animation effect="slide" start="0,0" end="-1900,0" time="300">Hidden</animation>
+
                     <left>0</left>
-                    <top>60</top>
+                    <top>100</top>
                     <control type="image">
     			<width>1920</width>
-    			<height>400</height>
-    			<texture>blanc.png</texture>
+    			<height>355</height>
+    			<texture>Rouge.png</texture>
     			<aspectratio>strecht</aspectratio>
                     </control>
                     <control type="label">
                         <left>100</left>
-                        <top>350</top>
+                        <top>300</top>
                         <width>auto</width>
                         <height>auto</height>
                         <align>center</align>
-                        <label>Retour</label>
+                        <label>-</label>
                         <font>Font72</font>
                         <textcolor>Gris</textcolor>
                     </control>

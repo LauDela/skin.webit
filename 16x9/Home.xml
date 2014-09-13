@@ -6,19 +6,19 @@
 	<controls>
 		<control type="group">
 			<visible>Window.IsVisible(home)</visible>
-		<!-- Hidden control to load weather conditions -->
-		<control type="label">
-			<font>-</font>
-			<label>$INFO[Weather.Conditions]</label>
-		</control>
+                        <!-- Hidden control to load weather conditions -->
+                        <control type="label">
+                            <font>-</font>
+                            <label>$INFO[Weather.Conditions]</label>
+                        </control>
 
 		
-		<!-- Background
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>Home.jpg</texture>
-		</control>
-		-->
+                        <!-- Background -->
+                        <control type="image">
+                            <include>FullscreenDimensions</include>
+                            <texture>Blanc.png</texture>
+                        </control>
+		
           		<control type="image">
 			<left>400</left>
 			<top>100</top>

@@ -5,7 +5,15 @@
         <control type="group" id="7776"> <!--Menu simple-->
             <top>0</top>
             <left>0</left>
-            <animation effect="slide" start="0,0" end="-100,0" time="600" condition="Control.HasFocus(501) | Control.HasFocus(800) | Control.HasFocus(9002)" easing="out">conditional</animation>
+            <animation effect="slide" start="0,0" end="-100,0" time="300" condition="Control.HasFocus(501) | Control.HasFocus(800) | Control.HasFocus(9002)" >conditional</animation>
+            <control type="image">
+                <left>90</left>
+                <top>100</top>
+                <width>20</width>
+                <height>1080</height>
+                <texture>ombreV.png</texture>
+                <aspectratio>stretch</aspectratio>
+            </control>
 
             <control type="image">
 		<left>0</left>
@@ -28,8 +36,10 @@
         <control type="group" id="7777">
             <top>0</top>
             <left>0</left>
-            <animation effect="slide" start="-500,0" end="0,0" time="600" condition="Control.HasFocus(501) | Control.HasFocus(800) | Control.HasFocus(9002)" easing="out">conditional</animation>
-
+            <animation effect="slide" start="-400,0" end="0,0" time="300" condition="Control.HasFocus(501) | Control.HasFocus(800) | Control.HasFocus(9002)">conditional</animation>
+            <animation effect="slide" start="0,0" end="-400,0" time="300" condition="Control.HasFocus(52) | Control.HasFocus(50) | Control.HasFocus(199) | Control.HasFocus(3) | Control.HasFocus(4)">conditional</animation>
+            <animation effect="slide" start="-400,0" end="0,0" time="300">Unfocus</animation>
+            <animation effect="slide" start="-400,0" end="0,0" time="300">WindowOpen</animation>
             <control type="image">
                 <left>390</left>
 		<top>100</top>
@@ -51,7 +61,7 @@
             <!-- Main list -->
             <control type="wraplist" id="501">
                 <left>0</left>
-                <top>95</top>
+                <top>99</top>
                 <width>400</width>
                 <height>1080</height>
                 <onup></onup>
@@ -60,14 +70,13 @@
                 <onright condition="Container(501).HasFocus(3)">SetFocus(800)</onright> <!--movies-->
                 <onright condition="Container(501).HasFocus(6)">SetFocus(800)</onright> <!--music-->
                 
-                <focusposition>0</focusposition>
+                <focusposition>1</focusposition>
                 <defaultcontrol>3</defaultcontrol>
                 <orientation>vertical</orientation>
                 <scrolltime>0</scrolltime>
                 <itemlayout width="401" height="100">
                     <control type="group">
-                        <animation effect="slide" end="0,400" time="600" condition="Control.HasFocus(800) | Control.HasFocus(9002)" tween="back" easing="out">conditional</animation>
-                    
+                        <animation effect="slide" end="0,400" time="500" condition="Control.HasFocus(800) | Control.HasFocus(9002)" tween="back" easing="out">conditional</animation>
                         <control type="image">
                             <left>30</left>
                             <top>20</top>
@@ -192,7 +201,6 @@
                     <item id="6">
                         <label>2</label>
                         <onclick>ActivateWindow(Music,Artists,return)</onclick>
-                        <onclick>SetFocus(52)</onclick>
                         <label2>$INFO[Window(Home).Property(Music.ArtistsCount)]</label2>
                         <visible>!Skin.HasSetting(HideMusic)</visible>
                         <thumb>icons/music2.png</thumb>
@@ -201,7 +209,6 @@
                         <label>342</label>
                         <label2>$INFO[Window(Home).Property(Movies.Count)]</label2>
                         <onclick>ActivateWindow(Videos,MovieTitles,return)</onclick>
-                        <onclick>SetFocus(52)</onclick>
                         <visible>Library.HasContent(Movies)</visible>
                         <visible>!Skin.HasSetting(HideMovies)</visible>
                         <thumb>icons/film.png</thumb>
@@ -209,7 +216,6 @@
                     <item id="4">
                         <label>20343</label>
                         <onclick>ActivateWindow(Videos,TVShowTitles,return)</onclick>
-                        <onclick>SetFocus(52)</onclick>
                         <label2>$INFO[Window(Home).Property(TVShows.Count)]</label2>
                         <visible>Library.HasContent(TVShows)</visible>
                         <visible>!Skin.HasSetting(HideTVShows)</visible>
@@ -271,13 +277,14 @@
                 <onright condition="Control.IsVisible(52)">SetFocus(52)</onright> <!--movies-->
                 <onright condition="Control.IsVisible(53)">SetFocus(53)</onright> <!--music-->
                 <onright condition="Control.IsVisible(50)">SetFocus(50)</onright> <!--View List-->
+                <onright condition="Control.IsVisible(51)">SetFocus(51)</onright> <!--Songs-->
             </control>
 
             <control type="group" id="9001">
                 <visible>Control.HasFocus(800) | Control.HasFocus(9002)</visible>
                 <control type="image">
                     <left>0</left>
-                    <top>195</top>
+                    <top>295</top>
                     <width>250</width>
                     <height>40</height>
                     <texture>vert.png</texture>
@@ -285,7 +292,7 @@
                 </control>
                 <control type="image">
                     <left>0</left>
-                    <top>195</top>
+                    <top>295</top>
                     <width>400</width>
                     <height>400</height>
                     <texture>submenu.png</texture>
@@ -293,7 +300,7 @@
                 </control>
                 <control type="list" id="9002">
                     <left>0</left>
-                    <top>100</top>
+                    <top>200</top>
                     <width>400</width>
                     <height>1080</height>
                     <onup></onup>
@@ -302,6 +309,7 @@
                     <onright condition="Control.IsVisible(52)">SetFocus(52)</onright> <!--movies-->
                     <onright condition="Control.IsVisible(53)">SetFocus(53)</onright> <!--music-->
                     <onright condition="Control.IsVisible(50)">SetFocus(50)</onright> <!--View List-->
+                    <onright condition="Control.IsVisible(51)">SetFocus(51)</onright> <!--View Songs-->
                     <focusposition>0</focusposition>
                     <defaultcontrol>3</defaultcontrol>
                     <orientation>vertical</orientation>
@@ -510,6 +518,10 @@
                 </control>
             </control>
 
+            
+            
+	</control>
+        <!--
             <control type="image">
 		<left>0</left>
 		<top>0</top>
@@ -518,6 +530,7 @@
 		<texture>Blanc.png</texture>
 		<aspectratio>strecht</aspectratio>
             </control>
+        -->    
             <control type="image">
 		<left>0</left>
 		<top>1075</top>
@@ -526,8 +539,5 @@
 		<texture>rouge2.png</texture>
 		<aspectratio>strecht</aspectratio>
             </control>
-            
-	</control>
-
     </include>
 </includes>
