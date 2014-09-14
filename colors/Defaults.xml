@@ -14,11 +14,12 @@
 	<color name="Noir">FF000000</color>
 	<color name="Blanc">FFFFFFFF</color>
 	<color name="Bleu">FF26a6d1</color>
-	<color name="Vert">FF25faae</color>
-	<color name="Rouge">FFff540e</color>
+	<color name="Vert">FF3db39e</color>
+	<color name="Rouge">FFe2574c</color>
 	<color name="Gris">FF7F7F7F</color>
-	<color name="Jaune">FFEFD807</color>
-
+	<color name="Jaune">FFefc75e</color>
+        <color name="Rose">FFe19178</color>
+       
 	
 	<!-- Dialog colors -->
 	<color name="DialogColor1">ffffffff</color>

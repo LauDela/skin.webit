@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="Viewtype52">
+
                 <control type="image">
                     <left>0</left>
                     <top>0</top>
@@ -9,6 +10,7 @@
                     <texture background="true">blanc.png</texture>
                     <aspectratio>strecht</aspectratio>
                 </control>
+            
 		<control type="group">
                     <left>400</left>
                     <visible>Control.IsVisible(52)</visible>
@@ -40,7 +42,6 @@
 			<orientation>vertical</orientation>
 			<viewtype label="539">list</viewtype>
 			<scrolltime tween="sine" easing="out">240</scrolltime>
-
                         <itemlayout width="200" height="310" condition="Container.Content(movies) | Container.Content(genres) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons)">  <!-- MOVIES -->
                             
                             <control type="group">
@@ -116,7 +117,7 @@
 				</control>
                             </control>
 			</itemlayout>
-                        <itemlayout width="280" height="350" condition="Container.Content(artists)| Container.Content(albums)">    <!--MUSIC -->
+                        <itemlayout width="280" height="350" condition="Container.Content(artists) | Container.Content(albums)| Container.Content(songs)">    <!--MUSIC -->
                             
                             <control type="group">
 				<!--<visible>!SubString(ListItem.Icon,Default)</visible>-->
@@ -138,7 +139,16 @@
                                     <texture background="true">gris01t.png</texture>
                                     <aspectratio align="center">stretch</aspectratio>
                                 </control>
-
+                                <control type="label">
+                                    <left>0</left>
+                                    <top>80</top>
+                                    <width>260</width>
+                                    <height>27</height>
+                                    <font>Font72</font>
+                                    <align>left</align>
+                                    <label>[B]$INFO[ListItem.TrackNumber][/B]</label>
+                                    <textcolor>Gris</textcolor>
+				</control>
 				<control type="label">
                                     <left>0</left>
                                     <top>310</top>
@@ -245,7 +255,7 @@
 
                             </control>
 			</focusedlayout>
-                        <focusedlayout width="280" height="350" condition="Container.Content(artists)| Container.Content(albums)"> 
+                        <focusedlayout width="280" height="350" condition="Container.Content(artists)| Container.Content(albums)| Container.Content(songs)"> 
 
                             <control type="group">
 				<control type="image">
@@ -711,7 +721,7 @@
                     
 		</control>
                 <control type="group">
-                    <visible>[IsEmpty(ListItem.Title)+ [Container.Content(movies) | Container.Content(tvshows)]] | [IsEmpty(ListItem.Artist)+ [Container.Content(artists)]] | [IsEmpty(ListItem.Albums)+ [Container.Content(albums)]]</visible>
+                    <visible>[IsEmpty(ListItem.Title)+ [Container.Content(movies) | Container.Content(tvshows)]] | [IsEmpty(ListItem.Artist)+ [Container.Content(artists)]] | [IsEmpty(ListItem.Title)+ [Container.Content(albums)]]</visible>
                     <animation effect="slide" start="-1900,0" end="0,0" time="300">Visible</animation>
                     <animation effect="slide" start="0,0" end="-1900,0" time="300">Hidden</animation>
 
@@ -734,6 +744,14 @@
                         <textcolor>Gris</textcolor>
                     </control>
                 </control>
-
+            <control type="label">
+                <left>600</left>
+                <top>20</top>
+                <label>Viewtype52</label>
+                <font>Font42</font>
+                <textcolor>Noir</textcolor>
+            </control>
         </include>
+            
+
 </includes>

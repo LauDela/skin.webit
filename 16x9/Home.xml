@@ -16,7 +16,7 @@
                         <!-- Background -->
                         <control type="image">
                             <include>FullscreenDimensions</include>
-                            <texture>Blanc.png</texture>
+                            <texture background="true">blanc.png</texture>
                         </control>
 		
           		<control type="image">
@@ -24,7 +24,7 @@
 			<top>100</top>
 			<width>2100</width>
 			<height>1080</height>
-			<texture>menu_select.png</texture>
+			<texture background="true">menu_select.png</texture>
 			<aspectratio>stretch</aspectratio>
 		</control>
 

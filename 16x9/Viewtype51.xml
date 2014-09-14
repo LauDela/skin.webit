@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="Viewtype51">
+            
 
 		<control type="group">
 		    <animation effect="slide" start="-300,0" end="0,0" time="600" condition="Control.HasFocus(501) | Control.HasFocus(800) | Control.HasFocus(9002)">conditional</animation>
-                    <visible>Control.IsVisible(51) + Container.Content(songs)</visible>
+                    <visible>Control.IsVisible(51)</visible>
                     <control type="image">
                         <left>0</left>
                         <top>0</top>
@@ -70,6 +71,7 @@
                         <viewtype label="Songs">Songs</viewtype>
                         <scrolltime>0</scrolltime>
                         <pagecontrol>11</pagecontrol>
+                        <visible>[Window.IsActive(musiclibrary) + [Container.Content(songs) | Container.Content(playlists) | Container.Content(files)]] | Window.IsActive(musicplaylist)</visible>
                         <itemlayout width="401" height="80">
                             
                     
@@ -341,9 +343,12 @@
 					</control>
 			</control>
                 </control>
-                
-                
-
-                    
+        <control type="label">
+                <left>600</left>
+                <top>20</top>
+                <label>Viewtype51</label>
+                <font>Font42</font>
+                <textcolor>Noir</textcolor>
+            </control>                
         </include>
 </includes>

@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="Viewtype50">
-
+            
 		<control type="group">
 		    <animation effect="slide" start="-300,0" end="0,0" time="600" condition="Control.HasFocus(501) | Control.HasFocus(800) | Control.HasFocus(9002)">conditional</animation>
                     <visible>Control.IsVisible(50)</visible>
-                    <control type="image">
-                        <left>0</left>
-                        <top>0</top>
-                        <width>1920</width>
-                        <height>1080</height>
-                        <texture background="true">blanc.png</texture>
-                        <aspectratio>strecht</aspectratio>
-                    </control>
+                    
                     <control type="image">
                         <left>790</left>
                         <top>100</top>
@@ -323,7 +316,13 @@
 			</control>
                 </control>
                 
-                
+             <control type="label">
+                <left>600</left>
+                <top>50</top>
+                <label>Viewtype50</label>
+                <font>Font42</font>
+                <textcolor>Noir</textcolor>
+            </control>   
 
                     
         </include>

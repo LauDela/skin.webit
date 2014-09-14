@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<!-- musiclibrary -->
-	<backgroundcolor>0x00000000</backgroundcolor>
 	<defaultcontrol always="true">501</defaultcontrol>
-	<onunload condition="Window.Next(musicplaylisteditor)">SetProperty(NumberItems,$INFO[Container(50).NumItems])</onunload>
-	<onunload condition="Window.Next(musicplaylisteditor)">SetProperty(ListItem-3,$INFO[Container(50).ListItemNoWrap(-3).Label])</onunload>
-	<onunload condition="Window.Next(musicplaylisteditor)">SetProperty(ListItem-2,$INFO[Container(50).ListItemNoWrap(-2).Label])</onunload>
-	<onunload condition="Window.Next(musicplaylisteditor)">SetProperty(ListItem-1,$INFO[Container(50).ListItem(-1).Label])</onunload>
-	<onunload condition="Window.Next(musicplaylisteditor)">SetProperty(ListItem,$INFO[Container(50).ListItemNoWrap.Label])</onunload>
-	<onunload condition="Window.Next(musicplaylisteditor)">SetProperty(ListItem1,$INFO[Container(50).ListItemNoWrap(1).Label])</onunload>
-	<onunload condition="Window.Next(musicplaylisteditor)">SetProperty(ListItem2,$INFO[Container(50).ListItemNoWrap(2).Label])</onunload>
-	<onunload condition="Window.Next(musicplaylisteditor)">SetProperty(ListItem3,$INFO[Container(50).ListItemNoWrap(3).Label])</onunload>
 	<views>52,50,51</views>
 	<controls>
 		<!-- Main group -->
