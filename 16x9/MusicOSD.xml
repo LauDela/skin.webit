@@ -2,6 +2,7 @@
 <window>
 	<!-- musicosd -->
 	<defaultcontrol always="true">1</defaultcontrol>
+        <allowoverlay>yes</allowoverlay>
 
 	<controls>
 
@@ -21,12 +22,6 @@
 				<effect type="fade" start="100" end="0" time="200"/>
 			</animation>
 
-			<!-- Background -->
-			<control type="image">
-				<width>80</width>
-				<height>60</height>
-				<texture border="1">osd/OSDBack.png</texture>
-			</control>
 
 			<!-- Status -->
 			<control type="label">
@@ -34,7 +29,7 @@
 				<height>60</height>
 				<font>Font36</font>
 				<align>center</align>
-				<label>$VAR[PlayerStatus]</label>
+				<label>$VAR[PlayerStatus] toto</label>
 				<textcolor>DialogColor2</textcolor>
 			</control>
 
@@ -52,7 +47,7 @@
 		<!-- Player skipping -->
 		<control type="group">
 			<right>150</right>
-			<top>795</top>
+			<top>20</top>
 			<width>140</width>
 			<height>60</height>
 			<animation type="WindowOpen" condition="!Window.IsActive(seekbar) + !Player.ShowInfo">
@@ -65,12 +60,6 @@
 			</animation>
 			<visible>IntegerGreaterThan(MusicPlayer.PlaylistLength,0)</visible>
 
-			<!-- Background -->
-			<control type="image">
-				<width>140</width>
-				<height>60</height>
-				<texture border="1">osd/OSDBack.png</texture>
-			</control>
 
 			<!-- Status -->
 			<control type="label">
@@ -78,17 +67,18 @@
 				<height>60</height>
 				<font>Font27</font>
 				<align>center</align>
-				<label>[B]$INFO[MusicPlayer.PlaylistPosition,(,/]$INFO[MusicPlayer.PlaylistLength,,)][/B]</label>
+				<label>[B]$INFO[MusicPlayer.PlaylistPosition,(,/]$INFO[MusicPlayer.PlaylistLength,,)][/B] toto</label>
 				<textcolor>DialogColor2</textcolor>
 			</control>
 
 		</control>
 
-		<!-- Progress -->
+		
+
 		<control type="group">
-			<left>150</left>
-			<top>870</top>
-			<width>1620</width>
+			<left>600</left>
+			<top>20</top>
+			<width>900</width>
 			<height>60</height>
 			<animation type="WindowOpen" condition="!Window.IsActive(seekbar) + !Player.ShowInfo">
 				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
@@ -99,84 +89,6 @@
 				<effect type="fade" start="100" end="0" time="200"/>
 			</animation>
 
-			<!-- Background -->
-			<control type="image">
-				<width>1620</width>
-				<height>60</height>
-				<texture border="1">osd/OSDBack.png</texture>
-			</control>
-
-			<!--  Current position -->
-			<control type="label">
-				<left>20</left>
-				<width>600</width>
-				<height>60</height>
-				<font>Font27</font>
-				<textcolor>DialogColor2</textcolor>
-				<label>$INFO[Player.Time]</label>
-			</control>
-
-			<!--  Progress bar -->
-			<control type="progress" id="1">
-				<left>140</left>
-				<top>20</top>
-				<width>1205</width>
-				<height>20</height>
-				<info>Player.Progress</info>
-				<texturebg border="2">osd/OSDProgressBack.png</texturebg>
-				<lefttexture>-</lefttexture>
-				<midtexture border="2">osd/OSDProgressBar.png</midtexture>
-				<righttexture>-</righttexture>
-				<overlaytexture>-</overlaytexture>
-			</control>
-
-			<!--  Cache bar -->
-			<control type="progress" id="1">
-				<left>140</left>
-				<top>20</top>
-				<width>1205</width>
-				<height>20</height>
-				<info>Player.ProgressCache</info>
-				<texturebg colordiffuse="00ffffff" border="2">osd/OSDProgressBack.png</texturebg>
-				<lefttexture>-</lefttexture>
-				<midtexture colordiffuse="66ffffff" border="2">osd/OSDProgressBar.png</midtexture>
-				<righttexture>-</righttexture>
-				<overlaytexture>-</overlaytexture>
-			</control>
-
-			<!-- End Time -->
-			<control type="label">
-				<left>1001</left>
-				<width>600</width>
-				<height>60</height>
-				<align>right</align>
-				<font>Font27</font>
-				<textcolor>DialogColor2</textcolor>
-				<label>$INFO[Player.FinishTime,$LOCALIZE[19127]: ]</label>
-			</control>
-
-		</control>
-
-		<control type="group">
-			<left>150</left>
-			<top>945</top>
-			<width>1620</width>
-			<height>60</height>
-			<animation type="WindowOpen" condition="!Window.IsActive(seekbar) + !Player.ShowInfo">
-				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-				<effect type="fade" start="0" end="100" time="200"/>
-			</animation>
-			<animation type="WindowClose" condition="!Window.IsActive(seekbar) + !Player.ShowInfo">
-				<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
-				<effect type="fade" start="100" end="0" time="200"/>
-			</animation>
-
-			<!-- Background -->
-			<control type="image">
-				<width>1620</width>
-				<height>60</height>
-				<texture border="1">osd/OSDBack.png</texture>
-			</control>
 
 			<!-- Controls -->
 			<control type="grouplist">
@@ -185,8 +97,8 @@
 				<itemgap>0</itemgap>
 				<onleft>12</onleft>
 				<onright>7</onright>
-				<onup>Close</onup>
-				<ondown>Close</ondown>
+				<onup></onup>
+				<ondown>SetFocus(801)</ondown>
 				<orientation>horizontal</orientation>
 
 				<!-- Play/Pause -->
@@ -252,8 +164,8 @@
 				<itemgap>0</itemgap>
 				<onleft>6</onleft>
 				<onright>1</onright>
-				<onup>Close</onup>
-				<ondown>Close</ondown>
+				<onup></onup>
+				<ondown></ondown>
 				<orientation>horizontal</orientation>
 
 				<!-- Repeat -->

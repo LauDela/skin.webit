@@ -22,7 +22,7 @@
 			<animation effect="slide" start="0,0" end="0,1000" time="200" >WindowOpen</animation>
 			<animation effect="slide" start="0,1000" end="0,0" time="200" >WindowClose</animation>
 		</control>
-
+                
       		<include>Menus</include>
                 <!-- Time -->
 		<include>Time</include>

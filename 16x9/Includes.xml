@@ -135,7 +135,7 @@
 		<control type="button">
 			<left>30</left>
 			<top>18</top>
-			<width>1850</width>
+			<width>1885</width>
 			<height>33</height>
 			<aligny>top</aligny>
 			<label>[COLOR Gris]$VAR[HeadingLabel][/COLOR]</label>

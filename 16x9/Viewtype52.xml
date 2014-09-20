@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="Viewtype52">
-
+        <allowoverlay>yes</allowoverlay>
                 <control type="image">
                     <left>0</left>
                     <top>0</top>
@@ -33,6 +33,7 @@
 			<height>600</height>
 			<!--<onup condition="!Skin.HasSetting(KioskMode)">3001</onup>-->
 			<!--<onup>66</onup>-->
+                        <onup condition="Player.HasMedia">1001</onup>
 			<ondown>501</ondown>
 			<onleft>501</onleft>
 			<onright>199</onright>
@@ -42,10 +43,9 @@
 			<orientation>vertical</orientation>
 			<viewtype label="539">list</viewtype>
 			<scrolltime tween="sine" easing="out">240</scrolltime>
-                        <itemlayout width="200" height="310" condition="Container.Content(movies) | Container.Content(genres) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons)">  <!-- MOVIES -->
+                        <itemlayout width="200" height="310" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons)">  <!-- MOVIES -->
                             
                             <control type="group">
-                            <!--<visible>!SubString(ListItem.Icon,Default)</visible>-->
 				<control type="image">
                                     <left>0</left>
                                     <top>50</top>
@@ -53,16 +53,6 @@
                                     <height>250</height>
                                     <texture background="true">$INFO[ListItem.Thumb]</texture>
                                     <aspectratio align="center">stretch</aspectratio>
-                                    <visible>!Container.Content(genres)</visible>
-				</control>
-                                <control type="image">
-                                    <left>0</left>
-                                    <top>50</top>
-                                    <width>170</width>
-                                    <height>250</height>
-                                    <texture background="true">$INFO[ListItem.Label,extras/moviegenres/,.png]</texture>
-                                    <aspectratio align="center">keep</aspectratio>
-                                    <visible>Container.Content(genres)</visible>
 				</control>
 
 				<control type="image">
@@ -72,8 +62,9 @@
                                     <height>250</height>
                                     <texture background="true">gris01t.png</texture>
                                     <aspectratio align="center">stretch</aspectratio>
-                                    <visible>!Container.Content(genres) + !SubString(ListItem.Icon,Default)</visible>
+                                    <visible>!SubString(ListItem.Icon,Default)</visible>
 				</control>
+                                
 				<control type="label">
                                     <left>0</left>
                                     <top>300</top>
@@ -83,7 +74,6 @@
                                     <align>left</align>
                                     <label>[B]$INFO[ListItem.Label][/B]</label>
                                     <textcolor>Noir</textcolor>
-                                    <visible>!Container.Content(genres)</visible>
 				</control>
 				<control type="label">
                                     <left>0</left>
@@ -104,6 +94,127 @@
                                     <texture>rating/$INFO[ListItem.StarRating]</texture>
                                     <colordiffuse>Gris</colordiffuse>
                                     <visible>Control.IsVisible(501) + !IsEmpty(ListItem.Title) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+				</control>
+
+				<!-- Watched status-->
+				<control type="image">
+                                    <left>130</left>
+                                    <top>260</top>
+                                    <width>35</width>
+                                    <height>49</height>
+                                    <texture>$VAR[StatusOverlayWide]</texture>
+                                    <visible>Skin.HasSetting(WatchedFlags)</visible>
+				</control>
+                            </control>
+			</itemlayout>
+                        <itemlayout width="320" height="310" condition="Container.Content(genres)">  <!-- GENRES -->
+                            
+                            <control type="group">
+                                <control type="image">
+                                    <left>0</left>
+                                    <top>20</top>
+                                    <width>300</width>
+                                    <height>300</height>
+                                    <texture background="true">$INFO[ListItem.Label,extras/moviegenres/,.png]</texture>
+                                    <aspectratio align="center">keep</aspectratio>
+                                    <visible>Container.Content(genres)</visible>
+				</control>
+                                <control type="image">
+                                    <left>17</left>
+                                    <top>90</top>
+                                    <width>268</width>
+                                    <height>190</height>
+                                    <texture background="true">gris01t.png</texture>
+                                    <aspectratio align="center">stretch</aspectratio>
+                                </control>
+				<control type="label">
+                                    <left>15</left>
+                                    <top>290</top>
+                                    <width>170</width>
+                                    <height>27</height>
+                                    <font>Font15</font>
+                                    <align>left</align>
+                                    <label>[B]$INFO[ListItem.Label][/B]</label>
+                                    <textcolor>Noir</textcolor>
+				</control>
+
+                            </control>
+			</itemlayout>
+                        
+
+                        
+                        
+                        <itemlayout width="400" height="310" condition="Container.Content(episodes)">  <!-- EPISODES -->
+                            
+                            <control type="group">
+				<control type="image">
+                                    <left>0</left>
+                                    <top>50</top>
+                                    <width>370</width>
+                                    <height>250</height>
+                                    <texture background="true">$INFO[ListItem.Thumb]</texture>
+                                    <aspectratio align="center">stretch</aspectratio>
+				</control>
+
+				<control type="image">
+                                    <left>0</left>
+                                    <top>50</top>
+                                    <width>370</width>
+                                    <height>250</height>
+                                    <texture background="true">gris01t.png</texture>
+                                    <aspectratio align="center">stretch</aspectratio>
+                                    <visible>!Container.Content(genres) + !SubString(ListItem.Icon,Default)</visible>
+				</control>
+                                <control type="label">
+                                    <left>360</left>
+                                    <top>230</top>
+                                    <width>370</width>
+                                    <height>27</height>
+                                    <font>Font15</font>
+                                    <align>right</align>
+                                    <label>Saison [B]$INFO[ListItem.Season][/B]</label>
+                                    <textcolor>Blanc</textcolor>
+				</control>
+                                <control type="label">
+                                    <left>360</left>
+                                    <top>250</top>
+                                    <width>370</width>
+                                    <height>27</height>
+                                    <font>Font15</font>
+                                    <align>right</align>
+                                    <label>Episode [B]$INFO[ListItem.Episode][/B]</label>
+                                    <textcolor>Blanc</textcolor>
+				</control>
+
+				<control type="label">
+                                    <left>0</left>
+                                    <top>300</top>
+                                    <width>370</width>
+                                    <height>27</height>
+                                    <font>Font15</font>
+                                    <align>left</align>
+                                    <label>[B]$INFO[ListItem.Label][/B]</label>
+                                    <textcolor>Noir</textcolor>
+				</control>
+				<control type="label">
+                                    <left>0</left>
+                                    <top>320</top>
+                                    <width>370</width>
+                                    <height>27</height>
+                                    <font>Font15</font>
+                                    <align>left</align>
+                                    <label>$INFO[ListItem.Year]</label>
+                                    <textcolor>Gris</textcolor>
+				</control>
+				<control type="image">
+                                    <left>10</left>
+                                    <top>320</top>
+                                    <width></width>
+                                    <height>30</height>
+                                    <aspectratio >keep</aspectratio>
+                                    <texture>rating/$INFO[ListItem.StarRating]</texture>
+                                    <colordiffuse>Gris</colordiffuse>
+                                    <visible>Control.IsVisible(501) + !IsEmpty(ListItem.Title)</visible>
 				</control>
 
 				<!-- Watched status-->
@@ -147,6 +258,7 @@
                                     <font>Font72</font>
                                     <align>left</align>
                                     <label>[B]$INFO[ListItem.TrackNumber][/B]</label>
+                                    <visible>Container.Content(songs)</visible>
                                     <textcolor>Gris</textcolor>
 				</control>
 				<control type="label">
@@ -251,6 +363,83 @@
                                     <texture>rating/$INFO[ListItem.StarRating]</texture>
                                     <colordiffuse>Gris</colordiffuse>
                                     <visible>Control.IsVisible(501) + !IsEmpty(ListItem.Title) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+				</control>
+                            </control>
+			</focusedlayout>
+                        <focusedlayout width="320" height="310" condition="Container.Content(genres)">  <!-- GENRES -->
+                            
+                            <control type="group">
+                                <control type="image">
+                                    <left>0</left>
+                                    <top>20</top>
+                                    <width>300</width>
+                                    <height>300</height>
+                                    <texture background="true">$INFO[ListItem.Label,extras/moviegenres/,.png]</texture>
+                                    <aspectratio align="center">keep</aspectratio>
+                                    <visible>Container.Content(genres)</visible>
+				</control>
+                                
+				<control type="label">
+                                    <left>15</left>
+                                    <top>290</top>
+                                    <width>170</width>
+                                    <height>27</height>
+                                    <font>Font15</font>
+                                    <align>left</align>
+                                    <label>[B]$INFO[ListItem.Label][/B]</label>
+                                    <textcolor>Noir</textcolor>
+				</control>
+
+                            </control>
+			</focusedlayout>
+
+                        <focusedlayout width="400" height="310" condition="Container.Content(episodes)">   <!-- EPISODES -->
+                            <control type="group">
+                                <control type="image">
+                                    <left>120</left>
+                                    <top>-20</top>
+                                    <width>140</width>
+                                    <height>70</height>
+                                    <texture background="true">fleche.png</texture>
+                                    <aspectratio align="center">stretch</aspectratio>
+				</control>
+				<control type="image">
+                                    <left>0</left>
+                                    <top>50</top>
+                                    <width>370</width>
+                                    <height>250</height>
+                                    <texture background="true">$INFO[ListItem.Thumb]</texture>
+                                    <aspectratio align="center">stretch</aspectratio>
+				</control>
+				<control type="label">
+                                    <left>0</left>
+                                    <top>300</top>
+                                    <width>370</width>
+                                    <height>27</height>
+                                    <font>Font15</font>
+                                    <align>left</align>
+                                    <label>[B]$INFO[ListItem.Label][/B]</label>
+                                    <textcolor>Noir</textcolor>
+				</control>
+				<control type="label">
+                                    <left>0</left>
+                                    <top>320</top>
+                                    <width>170</width>
+                                    <height>27</height>
+                                    <font>Font15</font>
+                                    <align>left</align>
+                                    <label>$INFO[ListItem.Year]</label>
+                                    <textcolor>Gris</textcolor>
+				</control>
+				<control type="image">
+                                    <left>10</left>
+                                    <top>320</top>
+                                    <width></width>
+                                    <height>30</height>
+                                    <aspectratio >keep</aspectratio>
+                                    <texture>rating/$INFO[ListItem.StarRating]</texture>
+                                    <colordiffuse>Gris</colordiffuse>
+                                    <visible>Control.IsVisible(501) + !IsEmpty(ListItem.Title)</visible>
 				</control>
 
                             </control>
@@ -457,101 +646,89 @@
                             <aspectratio>stretch</aspectratio>
 			</control>
 
-      			<control type="label">
+                        <control type="grouplist">
                             <left>1120</left>
-                            <top>-50</top>
-                            <width>590</width>
-                            <height>200</height>
-                            <font>Font25</font>
-                            <align>left</align>
-                            <textcolor>Blanc</textcolor>
-                            <label>[B]Réalisateur :[/B] $INFO[ListItem.Director]</label>
-                            <visible>!IsEmpty(ListItem.Director)</visible>
-			</control>
-                        <control type="label">
-                            <left>1120</left>
-                            <top>-50</top>
-                            <width>590</width>
-                            <height>200</height>
-                            <font>Font25</font>
-                            <align>left</align>
-                            <textcolor>Blanc</textcolor>
-                            <label>[B]Naissance :[/B] $INFO[ListItem.Property(Artist_Born)]-$INFO[ListItem.Property(Artist_Died)]</label>
-                            <visible>!IsEmpty(ListItem.Property(Artist_Born))</visible>
-			</control>
+                            <top>10</top>
+                            <height>500</height>
+                            <control type="label">
+                                <width>590</width>
+                                <height>50</height>
+                                <font>Font25</font>
+                                <align>left</align>
+                                <textcolor>Blanc</textcolor>
+                                <label>[B]Réalisateur :[/B] $INFO[ListItem.Director]</label>
+                                <visible>!IsEmpty(ListItem.Director)</visible>
+                            </control>
+                            <control type="label">
+                                <width>590</width>
+                                <height>50</height>
+                                <font>Font25</font>
+                                <align>left</align>
+                                <textcolor>Blanc</textcolor>
+                                <label>[B]Naissance :[/B] $INFO[ListItem.Property(Artist_Born)]-$INFO[ListItem.Property(Artist_Died)]</label>
+                                <visible>!IsEmpty(ListItem.Property(Artist_Born))</visible>
+                            </control>
 
-                        <control type="label">
-                            <left>1120</left>
-                            <top>0</top>
-                            <width>590</width>
-                            <height>200</height>
-                            <font>Font25</font>
-                            <align>left</align>
-                            <textcolor>Blanc</textcolor>
-                            <label>[B]Scénario :[/B] $INFO[ListItem.Writer]</label>
-                            <visible>!IsEmpty(ListItem.Writer)</visible>
-			</control>
-                        <control type="label">
-                            <left>1120</left>
-                            <top>0</top>
-                            <width>590</width>
-                            <height>200</height>
-                            <font>Font25</font>
-                            <align>left</align>
-                            <textcolor>Blanc</textcolor>
-                            <label>[B]Genre :[/B] $INFO[ListItem.Property(Artist_Genre)]</label>
-                            <visible>!IsEmpty(ListItem.Property(Artist_Genre))</visible>
-			</control>
+                            <control type="label"> 
+                                <width>590</width>
+                                <height>50</height>
+                                <font>Font25</font>
+                                <align>left</align>
+                                <textcolor>Blanc</textcolor>
+                                <label>[B]Scénario :[/B] $INFO[ListItem.Writer]</label>
+                                <visible>!IsEmpty(ListItem.Writer)</visible>
+                            </control>
+                            <control type="label">
+                                <width>590</width>
+                                <height>50</height>
+                                <font>Font25</font>
+                                <align>left</align>
+                                <textcolor>Blanc</textcolor>
+                                <label>[B]Genre :[/B] $INFO[ListItem.Property(Artist_Genre)]</label>
+                                <visible>!IsEmpty(ListItem.Property(Artist_Genre))</visible>
+                            </control>
                         
-                        <control type="label">
-                            <left>1120</left>
-                            <top>50</top>
-                            <width>590</width>
-                            <height>200</height>
-                            <font>Font25</font>
-                            <align>left</align>
-                            <textcolor>Blanc</textcolor>
-                            <label>[B]Année :[/B] $INFO[ListItem.Year]</label>
-                            <visible>!IsEmpty(ListItem.Year)</visible>
-			</control>
-                        <control type="label">
-                            <left>1120</left>
-                            <top>50</top>
-                            <width>590</width>
-                            <height>200</height>
-                            <font>Font25</font>
-                            <align>left</align>
-                            <textcolor>Blanc</textcolor>
-                            <label>[B]Instrument :[/B] $INFO[ListItem.Property(Artist_Instrument)]</label>
-                            <visible>!IsEmpty(ListItem.Property(Artist_Instrument))</visible>
-			</control>
+                            <control type="label">
+                                <width>590</width>
+                                <height>50</height>
+                                <font>Font25</font>
+                                <align>left</align>
+                                <textcolor>Blanc</textcolor>
+                                <label>[B]Année :[/B] $INFO[ListItem.Year]</label>
+                                <visible>!IsEmpty(ListItem.Year)</visible>
+                            </control>
+                            <control type="label">
+                                <width>590</width>
+                                <height>50</height>
+                                <font>Font25</font>
+                                <align>left</align>
+                                <textcolor>Blanc</textcolor>
+                                <label>[B]Instrument :[/B] $INFO[ListItem.Property(Artist_Instrument)]</label>
+                                <visible>!IsEmpty(ListItem.Property(Artist_Instrument))</visible>
+                            </control>
 
-                        <control type="label">
-                            <left>1120</left>
-                            <top>100</top>
-                            <width>590</width>
-                            <height>200</height>
-                            <font>Font25</font>
-                            <align>left</align>
-                            <textcolor>Blanc</textcolor>
-                            <label>[B]Genre :[/B] $INFO[ListItem.Genre]</label>
-                            <visible>!IsEmpty(ListItem.Genre)</visible>
-			</control>
+                            <control type="label">
+                                <width>590</width>
+                                <height>50</height>
+                                <font>Font25</font>
+                                <align>left</align>
+                                <textcolor>Blanc</textcolor>
+                                <label>[B]Genre :[/B] $INFO[ListItem.Genre]</label>
+                                <visible>!IsEmpty(ListItem.Genre)</visible>
+                            </control>
 
-                        <control type="label">
-                            <left>1120</left>
-                            <top>100</top>
-                            <width>590</width>
-                            <height>200</height>
-                            <font>Font25</font>
-                            <align>left</align>
-                            <textcolor>Blanc</textcolor>
-                            <label>[B]Style :[/B] $INFO[ListItem.Property(Artist_Style)]</label>
-                            <visible>!IsEmpty(ListItem.Property(Artist_Style))</visible>
-			</control>
-                                                                                                                                                                                                        
-                        <!--Studio-->
-			<control type="image">
+                            <control type="label">
+                                <width>590</width>
+                                <height>50</height>
+                                <font>Font25</font>
+                                <align>left</align>
+                                <textcolor>Blanc</textcolor>
+                                <label>[B]Style :[/B] $INFO[ListItem.Property(Artist_Style)]</label>
+                                <visible>!IsEmpty(ListItem.Property(Artist_Style))</visible>
+                            </control>
+                        </control>                                                                                                                                                                                
+                            <!--Studio-->
+                            <control type="image">
                             <left>1090</left>
                             <top>220</top>
                             <width>250</width>
@@ -616,13 +793,13 @@
 				<visible>!IsEmpty(ListItem.AudioCodec)</visible>
                             </control>
 
-                            <control type="image">
+                            <control type="image" id="990">
                                 <left>15</left>
 				<top>265</top>
 				<width>70</width>
 				<height>70</height>
 				<aspectratio>stretch</aspectratio>
-                                <texture>$INFO[ListItem.MPAA,extras/rating/,.png]</texture>
+                                <texture fallback="blank.png">$INFO[ListItem.MPAA,extras/rating/,.png]</texture>
                                 <colordiffuse>Blanc</colordiffuse>
                                 <visible>!IsEmpty(ListItem.MPAA)</visible>
                             </control>
@@ -635,7 +812,7 @@
 				<align>center</align>
 				<textcolor>Blanc</textcolor>
 				<label>Age</label>
-				<visible>!IsEmpty(ListItem.MPAA)</visible>
+				<visible>!StringCompare(Control.GetLabel(990),blank.png)</visible>
                             </control>
                         </control>
 
@@ -744,13 +921,7 @@
                         <textcolor>Gris</textcolor>
                     </control>
                 </control>
-            <control type="label">
-                <left>600</left>
-                <top>20</top>
-                <label>Viewtype52</label>
-                <font>Font42</font>
-                <textcolor>Noir</textcolor>
-            </control>
+            
         </include>
             
 

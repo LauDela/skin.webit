@@ -152,14 +152,6 @@
 		<textureslidernibfocus border="2">osd/SliderNibFO.png</textureslidernibfocus>
 	</default>
 
-	<default type="progress">
-		<height>44</height>
-		<texturebg>-</texturebg>
-		<lefttexture>-</lefttexture>
-		<midtexture border="10">osd/ProgressBar.png</midtexture>
-		<righttexture>-</righttexture>
-		<overlaytexture>-</overlaytexture>
-	</default>
 
 	<default type="textbox">
 		<align>justify</align>

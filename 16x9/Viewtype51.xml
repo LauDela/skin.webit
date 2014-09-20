@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="Viewtype51">
-            
+        <allowoverlay>yes</allowoverlay>
 
 		<control type="group">
 		    <animation effect="slide" start="-300,0" end="0,0" time="600" condition="Control.HasFocus(501) | Control.HasFocus(800) | Control.HasFocus(9002)">conditional</animation>
@@ -61,7 +61,7 @@
                         <top>99</top>
                         <width>400</width>
                         <height>1000</height>
-                        <onup></onup>
+                        <onup condition="Player.HasMedia">1001</onup>
                         <ondown></ondown>
                         <onleft>Back</onleft>
                         <onright>199</onright>
@@ -311,6 +311,7 @@
                                                 <height>70</height>
 						<onclick>Container.NextViewMode</onclick>
                                                 <onleft>50</onleft>
+                                                <onup>SetFocus(1101)</onup>
                                                 <texturefocus colordiffuse="Noir">119.png</texturefocus>
                                                 <texturenofocus colordiffuse="Gris">119.png</texturenofocus>
                                                 <alttexturefocus colordiffuse="Noir">120.png</alttexturefocus>
@@ -343,12 +344,11 @@
 					</control>
 			</control>
                 </control>
-        <control type="label">
-                <left>600</left>
-                <top>20</top>
-                <label>Viewtype51</label>
-                <font>Font42</font>
-                <textcolor>Noir</textcolor>
-            </control>                
+        
+
+                           
+                                          
+                                                         
+                                                                                       
         </include>
 </includes>

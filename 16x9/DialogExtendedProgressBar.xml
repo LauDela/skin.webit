@@ -6,45 +6,65 @@
 	<controls>
 
 		<control type="group">
-			<centerleft>50%</centerleft>
-			<top>15</top>
-			<width>800</width>
+			<left>0</left>
+			<bottom>5</bottom>
+			<width>1920</width>
 			<height>180</height>
-			<include>DialogZoomAnimation</include>
-			<animation effect="fade" start="100" end="0" time="0" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
+			<animation effect="slide" start="0,300" end="0,0" time="300" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
+                        <animation type="WindowOpen">
+                            <effect type="slide" time="300" start="0,300" end="0,0" easing="out" tween="cubic" />
+                        </animation>
+                        <animation type="WindowClose">
+                            <effect type="slide" time="300" start="0,0" end="0,300" easing="in" tween="cubic" />
+                        </animation>
+                        <animation type="Visible">
+                            <effect type="slide" time="300" start="0,300" end="0,0" easing="out" tween="cubic" />
+                        </animation>
+                        <animation type="Hidden">
+                            <effect type="slide" time="300" start="0,0" end="0,300" easing="in" tween="cubic" />
+                        </animation>
 
 			<!-- Background image -->
 			<control type="image">
 				<left>0</left>
 				<top>0</top>
-				<width>800</width>
+				<width>1920</width>
 				<height>180</height>
-				<texture border="20">dialogs/DialogBackground.png</texture>
+				<texture border="20">bleu.png</texture>
 			</control>
+                        <control type="progress" id="32">
+                            <description>progress control</description>
+                            <left>0</left>
+                            <top>0</top>
+                            <width>1920</width>
+                            <height>180</height>
+                            <texturebg>bleu.png</texturebg>
+                            <midtexture>bleuff.png</midtexture>
+                        </control>
 
 			<!-- Heading -->
 			<control type="label" id="30">
-				<left>40</left>
+				<left>200</left>
 				<top>50</top>
-				<width>720</width>
+				<width>1000</width>
 				<height>33</height>
-				<align>center</align>
+				<align>left</align>
 				<scroll>true</scroll>
 				<font>Font33</font>
-				<textcolor>DialogColor1</textcolor>
+				<textcolor>Blanc</textcolor>
 			</control>
 
 			<!-- Details -->
 			<control type="label" id="31">
-				<left>40</left>
+				<left>200</left>
 				<top>104</top>
-				<width>720</width>
+				<width>1000</width>
 				<height>27</height>
-				<align>center</align>
+				<align>left</align>
 				<scroll>true</scroll>
 				<haspath>true</haspath>
 				<font>Font30</font>
-				<textcolor>DialogColor2</textcolor>
+				<textcolor>Blanc</textcolor>
 			</control>
 
 		</control>

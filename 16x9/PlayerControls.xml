@@ -34,8 +34,8 @@
 				<itemgap>0</itemgap>
 				<onleft>8</onleft>
 				<onright>7</onright>
-				<onup>Close</onup>
-				<ondown>Close</ondown>
+				<onup></onup>
+				<ondown>SetFocus(51)</ondown>
 				<orientation>horizontal</orientation>
 
 				<!-- Play/Pause -->

@@ -1,5 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<window>
+<window id="2903">
+    <!--<onload>AlarmClock(MusicOSD,ActivateWindow(musicosd),00:01,silent)</onload> 
+    <onunload>CancelAlarm(MusicOSD,true)</onunload>  -->
+    <controls>
 	<!-- musicoverlay -->
-	<visible>false</visible>
+	 <allowoverlay>yes</allowoverlay>
+         <defaultcontrol></defaultcontrol>
+         
+            <control type="group">
+                <left>0</left>
+                <top>0</top>
+                <control type="image">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>550</width>
+                    <height>100</height>
+                    <texture>bleu.png</texture>
+                    <aspectratio>stretch</aspectratio>
+                </control>
+        
+                <control type="image">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>100</width>
+                    <height>100</height>
+                    <texture>$INFO[MusicPlayer.Cover]</texture>
+                    <aspectratio>stretch</aspectratio>
+                </control>
+                <control type="label">
+                    <left>110</left>
+                    <top>0</top>
+                    <width>400</width>
+                    <label>[B]$INFO[MusicPlayer.Title][/B]</label>
+                    <font>Font30</font>
+                    <textcolor>Blanc</textcolor>
+                    <align>left</align>
+                </control>
+                <control type="label">
+                    <left>110</left>
+                    <top>35</top>
+                    <width>350</width>
+                    <label>$INFO[MusicPlayer.Artist]</label>
+                    <font>Font27</font>
+                    <textcolor>Blanc</textcolor>
+                    <align>left</align>
+                </control>
+                <control type="progress">
+                    <description>Progressbar</description>
+                    <left>110</left>
+                    <top>80</top>
+                    <width>410</width>
+                    <height>5</height>
+                    <info>Player.Progress</info>
+                    <texturebg>gris.png</texturebg>
+                    <midtexture>vert.png</midtexture>
+		</control>
+                <control type="label">
+                    <left>460</left>
+                    <top>30</top>
+                    <width>60</width>
+                    <label>$INFO[MusicPlayer.Time]</label>
+                    <font>Font20</font>
+                    <textcolor>Blanc</textcolor>
+                    <align>right</align>
+                </control>
+                
+            </control>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+    </controls>
 </window>

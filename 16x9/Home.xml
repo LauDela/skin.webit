@@ -2,7 +2,7 @@
 <window>
 	<!-- home -->
 	<defaultcontrol always="true">501</defaultcontrol>
-
+         <allowoverlay>yes</allowoverlay>
 	<controls>
 		<control type="group">
 			<visible>Window.IsVisible(home)</visible>
