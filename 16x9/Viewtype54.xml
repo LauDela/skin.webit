@@ -3,7 +3,7 @@
 	<include name="Viewtype54"> <!-- view pictures-->
             
 		<control type="group">
-		    <animation effect="slide" start="0,0" end="-300,0" time="300" condition="Control.HasFocus(50) | Control.HasFocus(199) | Control.HasFocus(3) | Control.HasFocus(4)">conditional</animation>
+		    <animation effect="slide" start="0,0" end="-300,0" time="300" condition="Control.HasFocus(54) | Control.HasFocus(199) | Control.HasFocus(3) | Control.HasFocus(4)">conditional</animation>
                     <visible>Control.IsVisible(54)</visible>
                     
                     <control type="image">
@@ -181,7 +181,7 @@
 			<left>400</left>
 			<width>3</width>
 			<height>978</height>
-			<onup>50</onup>
+			<onup>54</onup>
 			<showonepage>true</showonepage>
 			<orientation>vertical</orientation>
 			<texturesliderbackground>Noir.png</texturesliderbackground>
@@ -193,10 +193,26 @@
 			<visible>Control.HasFocus(54)</visible>
                     </control>
                     <!--********************* DETAILS ************************ -->
-                    <control type="group">
-                        <left>850</left>
-                        <top>0</top>
+                    <control type="image">
+                        <left>740</left>
+                        <top>100</top>
+                        <width>1600</width>
+                        <height>1000</height>
+                        <texture>$INFO[ListItem.thumb]</texture>
+                        <aspectratio>keep</aspectratio>
+                    </control>
 
+                    <control type="image">
+                        <left>790</left>
+                        <top>100</top>
+                        <width>1900</width>
+                        <height>1080</height>
+                        <texture>bg12T77.png</texture>
+                        <aspectratio>stretch</aspectratio>
+                    </control>
+                    <control type="group">
+                        <left>760</left>
+                        <top>0</top>
 
                         <control type="image">
                             <left>100</left>
@@ -206,7 +222,6 @@
                             <texture>$INFO[ListItem.thumb]</texture>
                             <aspectratio>stretch</aspectratio>
                         </control>
-
 
                         <control type="image">
                             <left>50</left>
@@ -227,22 +242,119 @@
                             <align>left</align>
                         </control>
 
+                </control>
+                
+                <control type="grouplist">
+                    <left>1550</left>
+                    <top>400</top>
+                    <height>500</height>
+                    <control type="label">
+                        <width>600</width>
+                        <height>50</height>
+                        <font>Font25</font>
+                        <align>left</align>
+                        <textcolor>Blanc</textcolor>
+                        <label>[B]Prise le :[/B] $INFO[ListItem.PictureDatetime]</label>
+                        <visible>!IsEmpty(ListItem.PictureDatetime)</visible>
+                    </control>
+                    <control type="label">
+                        <width>800</width>
+                        <height>50</height>
+                        <font>Font25</font>
+                        <align>left</align>
+                        <textcolor>Blanc</textcolor>
+                        <label>[B]Modèle :[/B] $INFO[ListItem.PictureCamMake] $INFO[ListItem.PictureCamModel]</label>
+                        <visible>!IsEmpty(ListItem.PictureCamMake)</visible>
+                    </control>
 
-                    
-                    
-                    
-                    <control type="image">
-                        <top>100</top>
-                        <left>1250</left>
-                        <width>200</width>
-    			<height>1000</height>
-    			<texture>blanc.png</texture>
-    			<aspectratio>strecht</aspectratio>
+                    <control type="label">
+                        <width>600</width>
+                        <height>50</height>
+                        <font>Font25</font>
+                        <align>left</align>
+                        <textcolor>Blanc</textcolor>
+                        <label>[B]ISO :[/B] $INFO[ListItem.PictureISO]</label>
+                        <visible>!IsEmpty(ListItem.PictureISO)</visible>
+                    </control>
+                    <control type="label">
+                        <width>600</width>
+                        <height>50</height>
+                        <font>Font25</font>
+                        <align>left</align>
+                        <textcolor>Blanc</textcolor>
+                        <label>[B]Flash :[/B] $INFO[ListItem.PictureFlashUsed]</label>
+                        <visible>!IsEmpty(ListItem.PictureFlashUsed)</visible>
+                    </control>
+                    <control type="label">
+                        <width>600</width>
+                        <height>50</height>
+                        <font>Font25</font>
+                        <align>left</align>
+                        <textcolor>Blanc</textcolor>
+                        <label>[B]Vitesse :[/B] $INFO[ListItem.PictureExpTime]</label>
+                        <visible>!IsEmpty(ListItem.PictureExpTime)</visible>
+                    </control>
+                    <control type="label">
+                        <width>600</width>
+                        <height>50</height>
+                        <font>Font25</font>
+                        <align>left</align>
+                        <textcolor>Blanc</textcolor>
+                        <label>[B]Focale :[/B] $INFO[ListItem.PictureFocusDist]</label>
+                        <visible>!IsEmpty(ListItem.PictureFocusDist)</visible>
+                    </control>
+
+                    <control type="label">
+                        <width>600</width>
+                        <height>50</height>
+                        <font>Font25</font>
+                        <align>left</align>
+                        <textcolor>Blanc</textcolor>
+                        <label>[B]Ouverture :[/B] $INFO[ListItem.PictureExposureBias]</label>
+                        <visible>!IsEmpty(ListItem.PictureExposureBias)</visible>
+                    </control>
+                    <control type="label">
+                        <width>600</width>
+                        <height>50</height>
+                        <font>Font25</font>
+                        <align>left</align>
+                        <textcolor>Blanc</textcolor>
+                        <label>[B]Programme :[/B] $INFO[ListItem.PictureExposure]</label>
+                        <visible>!IsEmpty(ListItem.PictureExposure)</visible>
+                    </control>
+
+                    <control type="label">
+                        <width>600</width>
+                        <height>50</height>
+                        <font>Font25</font>
+                        <align>left</align>
+                        <textcolor>Blanc</textcolor>
+                        <label>[B]Ville :[/B] $INFO[ListItem.PictureCity], $INFO[ListItem.PictureCountry]</label>
+                        <visible>!IsEmpty(ListItem.PictureCity)</visible>
                     </control>
                     
-                    
-                    
+                    <control type="label">
+                        <width>600</width>
+                        <height>50</height>
+                        <font>Font25</font>
+                        <align>left</align>
+                        <textcolor>Blanc</textcolor>
+                        <label>[B]Orientation :[/B] $INFO[ListItem.PictureOrientation]</label>
+                        <visible>!IsEmpty(ListItem.PictureOrientation)</visible>
+                    </control>
+
+
                 </control>
+                
+                <control type="image">
+                    <top>100</top>
+                    <left>2100</left>
+                    <width>150</width>
+                    <height>1000</height>
+                    <texture>blanc.png</texture>
+                    <aspectratio>stretch</aspectratio>
+                </control>
+
                 <!-- Main group -->
 			<control type="grouplist">
 				<left>2120</left>
@@ -252,7 +364,7 @@
 						<width>70</width>
                                                 <height>70</height>
 						<onclick>Container.NextViewMode</onclick>
-                                                <onleft>50</onleft>
+                                                <onleft>54</onleft>
                                                 <texturefocus colordiffuse="Noir">119.png</texturefocus>
                                                 <texturenofocus colordiffuse="Gris">119.png</texturenofocus>
                                                 <alttexturefocus colordiffuse="Noir">120.png</alttexturefocus>
@@ -269,13 +381,13 @@
                                                 <focusedcolor>Noir</focusedcolor>
 						<label>103</label>
 						<visible>Control.IsEnabled(3)</visible>
-                                                <onleft>50</onleft>
+                                                <onleft>54</onleft>
 					</control>
 					<!-- Sort ascending/descending -->
 					<control type="togglebutton" id="4">
                                                 <width>70</width>
                                                 <height>70</height>
-                                                <onleft>50</onleft>
+                                                <onleft>54</onleft>
                                                 <texturefocus colordiffuse="Noir">sort12.png</texturefocus>
                                                 <texturenofocus colordiffuse="Gris">sort12.png</texturenofocus>
                                                 <alttexturefocus colordiffuse="Noir">sort8.png</alttexturefocus>

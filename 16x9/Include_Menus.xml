@@ -37,7 +37,7 @@
             <top>0</top>
             <left>0</left>
             <animation effect="slide" start="-400,0" end="0,0" time="300" condition="Control.HasFocus(501) | Control.HasFocus(800) | Control.HasFocus(9002)">conditional</animation>
-            <animation effect="slide" start="0,0" end="-400,0" time="300" condition="Control.HasFocus(52) | Control.HasFocus(50) | Control.HasFocus(51) | Control.HasFocus(199) | Control.HasFocus(3) | Control.HasFocus(4)">conditional</animation>
+            <animation effect="slide" start="0,0" end="-400,0" time="300" condition="Control.HasFocus(52) | Control.HasFocus(50) | Control.HasFocus(51) | Control.HasFocus(54) | Control.HasFocus(199)| Control.HasFocus(600) | Control.HasFocus(3) | Control.HasFocus(4)">conditional</animation>
             <animation effect="slide" start="-400,0" end="0,0" time="300">Unfocus</animation>
             <animation effect="slide" start="-400,0" end="0,0" time="300">WindowOpen</animation>
             <control type="image">
@@ -67,10 +67,12 @@
                 <ondown></ondown>
                 <onleft condition="Container(501).HasFocus(3)">SetFocus(800)</onleft> <!--movies-->
                 <onleft condition="Container(501).HasFocus(6)">SetFocus(800)</onleft> <!--music-->
+                <onleft condition="Container(501).HasFocus(1)">SetFocus(800)</onleft> <!--shutdown-->
                 <onright condition="Control.IsVisible(52)">SetFocus(52)</onright> <!--movies-->
                 <onright condition="Control.IsVisible(53)">SetFocus(53)</onright> <!--music-->
                 <onright condition="Control.IsVisible(50)">SetFocus(50)</onright> <!--View List-->
                 <onright condition="Control.IsVisible(51)">SetFocus(51)</onright> <!--Songs-->
+                <onright condition="Control.IsVisible(54)">SetFocus(54)</onright> <!--Pictures-->
                 <focusposition>1</focusposition>
                 <defaultcontrol>3</defaultcontrol>
                 <orientation>vertical</orientation>
@@ -80,7 +82,7 @@
                         <animation effect="slide" end="0,400" time="500" condition="Control.HasFocus(800) | Control.HasFocus(9002)" tween="back" easing="out">conditional</animation>
                         <control type="image">
                             <left>30</left>
-                            <top>20</top>
+                            <top>16</top>
                             <width>80</width>
                             <height>80</height>
                             <texture>$INFO[ListItem.thumb]</texture>
@@ -121,7 +123,15 @@
                             <width>400</width>
                             <height>1</height>
                             <texture>menu_select.png</texture>
-                            <aspectratio>strecht</aspectratio>
+                            <aspectratio>stretch</aspectratio>
+                        </control>
+                        <control type="image">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>5</width>
+                            <height>100</height>
+                            <texture>$INFO[ListItem.Property("sub")]</texture>
+                            <aspectratio>stretch</aspectratio>
                         </control>
                     </control>
                 </itemlayout>
@@ -194,12 +204,22 @@
                         <textcolor>Gris</textcolor>
                         <align>left</align>
                     </control>
+                    <control type="image">
+                        <left>0</left>
+                        <top>0</top>
+                        <width>5</width>
+                        <height>100</height>
+                        <texture>$INFO[ListItem.Property("sub")]</texture>
+                        <aspectratio>stretch</aspectratio>
+                    </control>
 
                 </focusedlayout>
 
                 <content>
                     <item id="1">
                         <label>13005</label>
+                        <property name="label3">Gauche pour sous menu</property>
+                        <property name="sub">rouge.png</property>
                         <onclick>ActivateWindow(shutdownmenu)</onclick>
                         <visible>!Skin.HasSetting(HideShutdown)</visible>
                         <thumb>icons/no.png</thumb>
@@ -214,6 +234,7 @@
                         <onclick>ActivateWindow(Music,Artists,return)</onclick>
                         <label2>$INFO[Window(Home).Property(Music.ArtistsCount)]</label2>
                         <property name="label3">Gauche pour sous menu</property>
+                        <property name="sub">orange.png</property>
                         <visible>!Skin.HasSetting(HideMusic)</visible>
                         <thumb>icons/music2.png</thumb>
                     </item>
@@ -221,6 +242,7 @@
                         <label>342</label>
                         <label2>$INFO[Window(Home).Property(Movies.Count)]</label2>
                         <property name="label3">Gauche pour sous menu</property>
+                        <property name="sub">bleu.png</property>
                         <onclick>ActivateWindow(Videos,MovieTitles,return)</onclick>
                         <visible>Library.HasContent(Movies)</visible>
                         <visible>!Skin.HasSetting(HideMovies)</visible>
@@ -291,6 +313,7 @@
                 <onright condition="Control.IsVisible(53)">SetFocus(53)</onright> <!--music-->
                 <onright condition="Control.IsVisible(50)">SetFocus(50)</onright> <!--View List-->
                 <onright condition="Control.IsVisible(51)">SetFocus(51)</onright> <!--Songs-->
+                <onright condition="Control.IsVisible(54)">SetFocus(54)</onright> <!--Pictures-->
             </control>
 
             <control type="group" id="9001">
@@ -323,6 +346,7 @@
                     <onright condition="Control.IsVisible(53)">SetFocus(53)</onright> <!--music-->
                     <onright condition="Control.IsVisible(50)">SetFocus(50)</onright> <!--View List-->
                     <onright condition="Control.IsVisible(51)">SetFocus(51)</onright> <!--View Songs-->
+                    <onright condition="Control.IsVisible(54)">SetFocus(54)</onright> <!--View pictures-->
                     <focusposition>0</focusposition>
                     <defaultcontrol>3</defaultcontrol>
                     <orientation>vertical</orientation>
@@ -526,6 +550,42 @@
                             <onclick>UpdateLibrary(music)</onclick>
                             <thumb>icons/arrows.png</thumb>
                             <visible>Container(501).HasFocus(6)</visible>
+                        </item>
+                        <!-- -------------------SHUTDOWN -->
+                        <item id="608">
+                            <label>Quit</label>
+                            <thumb>icons/profiles.png</thumb>
+                            <onclick>XBMC.Quit()</onclick>
+                            <visible>System.ShowExitButton</visible>
+                            <visible>Container(501).HasFocus(1)</visible>
+                        </item>
+                        <item id="609">
+                            <label>Shutdown</label>
+                            <onclick>XBMC.Powerdown()</onclick>
+                            <thumb>icons/dvd.png</thumb>
+                            <visible>System.CanPowerDown</visible>
+                            <visible>Container(501).HasFocus(1)</visible>
+                        </item>
+                        <item id="610">
+                            <label>Suspend</label>
+                            <onclick>XBMC.Suspend()</onclick>
+                            <thumb>icons/music4.png</thumb>
+                            <visible>System.CanSuspend</visible>
+                            <visible>Container(501).HasFocus(1)</visible>
+                        </item>
+                        <item id="611">
+                            <label>Veille</label>
+                            <onclick>XBMC.Hibernate()</onclick>
+                            <thumb>icons/dvd.png</thumb>
+                            <visible>System.CanHibernate</visible>
+                            <visible>Container(501).HasFocus(1)</visible>
+                        </item>
+                        <item id="612">
+                            <label>Redemarrer</label>
+                            <onclick>XBMC.Reset()</onclick>
+                            <thumb>icons/music4.png</thumb>
+                            <visible>System.CanReboot</visible>
+                            <visible>Container(501).HasFocus(1)</visible>
                         </item>
                     </content>
                 </control>
