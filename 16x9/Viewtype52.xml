@@ -43,6 +43,73 @@
 			<orientation>vertical</orientation>
 			<viewtype label="539">list</viewtype>
 			<scrolltime tween="sine" easing="out">240</scrolltime>
+                        <itemlayout width="280" height="350" condition="Container.Content(artists) | Container.Content(albums)| Container.Content(songs)">    <!--MUSIC -->
+                            
+                            <control type="group">
+				<!--<visible>!SubString(ListItem.Icon,Default)</visible>-->
+
+				<control type="image">
+                                    <left>0</left>
+                                    <top>50</top>
+                                    <width>260</width>
+                                    <height>260</height>
+                                    <texture background="true">$INFO[ListItem.Thumb]</texture>
+                                    <aspectratio align="center">stretch</aspectratio>
+				</control>
+
+				<control type="image">
+                                    <left>0</left>
+                                    <top>50</top>
+                                    <width>260</width>
+                                    <height>260</height>
+                                    <texture background="true">gris01t.png</texture>
+                                    <aspectratio align="center">stretch</aspectratio>
+                                </control>
+                                <control type="label">
+                                    <left>0</left>
+                                    <top>80</top>
+                                    <width>260</width>
+                                    <height>27</height>
+                                    <font>Font72</font>
+                                    <align>left</align>
+                                    <label>[B]$INFO[ListItem.TrackNumber][/B]</label>
+                                    <visible>Container.Content(songs)</visible>
+                                    <textcolor>Gris</textcolor>
+				</control>
+				<control type="label">
+                                    <left>0</left>
+                                    <top>310</top>
+                                    <width>260</width>
+                                    <height>27</height>
+                                    <font>Font15</font>
+                                    <align>left</align>
+                                    <label>[B]$INFO[ListItem.Label][/B]</label>
+                                    <textcolor>Noir</textcolor>
+				</control>
+				<control type="label">
+                                    <left>0</left>
+                                    <top>330</top>
+                                    <width>170</width>
+                                    <height>27</height>
+                                    <font>Font15</font>
+                                    <align>left</align>
+                                    <label>$INFO[ListItem.Year]</label>
+                                    <textcolor>Gris</textcolor>
+				</control>
+				<control type="image">
+                                    <left>10</left>
+                                    <top>330</top>
+                                    <width></width>
+                                    <height>30</height>
+                                    <aspectratio >keep</aspectratio>
+                                    <texture>rating/$INFO[ListItem.StarRating]</texture>
+                                    <colordiffuse>Gris</colordiffuse>
+                                    <visible>Control.IsVisible(501) + !IsEmpty(ListItem.Title) + [Container.Content(music) | Container.Content(albums)]</visible>
+				</control>
+
+				</control>
+			</itemlayout>
+
                         <itemlayout width="200" height="310" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons)">  <!-- MOVIES -->
                             
                             <control type="group">
@@ -54,6 +121,7 @@
                                     <texture background="true">$INFO[ListItem.Thumb]</texture>
                                     <aspectratio align="center">stretch</aspectratio>
 				</control>
+                                
 
 				<control type="image">
                                     <left>0</left>
@@ -219,8 +287,8 @@
 
 				<!-- Watched status-->
 				<control type="image">
-                                    <left>130</left>
-                                    <top>260</top>
+                                    <left>10</left>
+                                    <top>255</top>
                                     <width>35</width>
                                     <height>49</height>
                                     <texture>$VAR[StatusOverlayWide]</texture>
@@ -228,11 +296,20 @@
 				</control>
                             </control>
 			</itemlayout>
-                        <itemlayout width="280" height="350" condition="Container.Content(artists) | Container.Content(albums)| Container.Content(songs)">    <!--MUSIC -->
-                            
-                            <control type="group">
-				<!--<visible>!SubString(ListItem.Icon,Default)</visible>-->
+                        
+                        <focusedlayout width="280" height="350" condition="Container.Content(artists)| Container.Content(albums)| Container.Content(songs)"> 
 
+                            <control type="group">
+				<control type="image">
+                                    <left>60</left>
+                                    <top>-20</top>
+                                    <width>140</width>
+                                    <height>70</height>
+                                    <texture background="true">fleche.png</texture>
+                                    <aspectratio align="center">stretch</aspectratio>
+                                    <visible>!Container(52).Scrolling</visible>
+                                    <animation effect="slide" start ="0,-50" end="0,0" time="200">Focus</animation>
+				</control>
 				<control type="image">
                                     <left>0</left>
                                     <top>50</top>
@@ -242,25 +319,6 @@
                                     <aspectratio align="center">stretch</aspectratio>
 				</control>
 
-				<control type="image">
-                                    <left>0</left>
-                                    <top>50</top>
-                                    <width>260</width>
-                                    <height>260</height>
-                                    <texture background="true">gris01t.png</texture>
-                                    <aspectratio align="center">stretch</aspectratio>
-                                </control>
-                                <control type="label">
-                                    <left>0</left>
-                                    <top>80</top>
-                                    <width>260</width>
-                                    <height>27</height>
-                                    <font>Font72</font>
-                                    <align>left</align>
-                                    <label>[B]$INFO[ListItem.TrackNumber][/B]</label>
-                                    <visible>Container.Content(songs)</visible>
-                                    <textcolor>Gris</textcolor>
-				</control>
 				<control type="label">
                                     <left>0</left>
                                     <top>310</top>
@@ -271,6 +329,7 @@
                                     <label>[B]$INFO[ListItem.Label][/B]</label>
                                     <textcolor>Noir</textcolor>
 				</control>
+
 				<control type="label">
                                     <left>0</left>
                                     <top>330</top>
@@ -281,6 +340,7 @@
                                     <label>$INFO[ListItem.Year]</label>
                                     <textcolor>Gris</textcolor>
 				</control>
+
 				<control type="image">
                                     <left>10</left>
                                     <top>330</top>
@@ -292,9 +352,8 @@
                                     <visible>Control.IsVisible(501) + !IsEmpty(ListItem.Title) + [Container.Content(music) | Container.Content(albums)]</visible>
 				</control>
 
-				</control>
-				</itemlayout>
-
+                            </control>
+			</focusedlayout>
 			<focusedlayout width="200" height="310" condition="Container.Content(movies) | Container.Content(genres) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons)">   <!-- MOVIES -->
                             <control type="group">
                                 <control type="image">
@@ -305,6 +364,8 @@
                                     <texture background="true">fleche.png</texture>
                                     <aspectratio align="center">stretch</aspectratio>
                                     <visible>!Container.Content(genres)</visible>
+                                    <visible>!Container(52).Scrolling</visible>
+                                    <animation effect="slide" start ="0,-50" end="0,0" time="200">Focus</animation>
 				</control>
                                 <control type="image">
                                     <left>100</left>
@@ -402,6 +463,8 @@
                                     <height>70</height>
                                     <texture background="true">fleche.png</texture>
                                     <aspectratio align="center">stretch</aspectratio>
+                                    <visible>!Container(52).Scrolling</visible>
+                                    <animation effect="slide" start ="0,-50" end="0,0" time="200">Focus</animation>
 				</control>
 				<control type="image">
                                     <left>0</left>
@@ -441,7 +504,15 @@
                                     <colordiffuse>Gris</colordiffuse>
                                     <visible>Control.IsVisible(501) + !IsEmpty(ListItem.Title)</visible>
 				</control>
-
+                                <!-- Watched status-->
+				<control type="image">
+                                    <left>10</left>
+                                    <top>255</top>
+                                    <width>35</width>
+                                    <height>49</height>
+                                    <texture>$VAR[StatusOverlayWide]</texture>
+                                    <visible>Skin.HasSetting(WatchedFlags)</visible>
+				</control>
                             </control>
 			</focusedlayout>
                         <focusedlayout width="280" height="350" condition="Container.Content(artists)| Container.Content(albums)| Container.Content(songs)"> 
@@ -455,6 +526,7 @@
                                     <texture background="true">fleche.png</texture>
                                     <aspectratio align="center">stretch</aspectratio>
                                     <visible>!Container(53).Scrolling</visible>
+                                    <animation effect="slide" start ="0,-50" end="0,0" time="200">Focus</animation>
 				</control>
 				<control type="image">
                                     <left>0</left>
@@ -531,16 +603,29 @@
 			<control type="label">
                             <left>50</left>
                             <top>395</top>
-                            <width>1740</width>
+                            <width>1500</width>
                             <height>27</height>
                             <font>Font48</font>
                             <align>left</align>
                             <label>$INFO[ListItem.Label]</label>
                             <textcolor>Blanc</textcolor>
+                            <visible>!Container.Content(episodes)</visible>
 			</control>
+      			<control type="label">
+                            <left>50</left>
+                            <top>395</top>
+                            <width>1740</width>
+                            <height>27</height>
+                            <font>Font48</font>
+                            <align>left</align>
+                            <label>Saison $INFO[ListItem.Season], épisode $INFO[ListItem.Label]</label>
+                            <textcolor>Blanc</textcolor>
+                            <visible>Container.Content(episodes)+ !IsEmpty(ListItem.Season)</visible>
+			</control>
+
 			<control type="label">
                             <left>1400</left>
-                            <top>390</top>
+                            <top>395</top>
                             <width>400</width>
                             <height>27</height>
                             <font>Font48</font>
@@ -565,7 +650,7 @@
                             <top>15</top>
                             <width>600</width>
                             <height>355</height>
-                            <texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+                            <texture background="true" condition="Container.Content(tvshows)" fallback="fallback/tv.jpg">$INFO[ListItem.Art(fanart)]</texture>
                             <aspectratio>stetch</aspectratio>
 			</control>
 			<control type="image">
@@ -907,7 +992,7 @@
                     <control type="image">
     			<width>1920</width>
     			<height>355</height>
-    			<texture>Rouge.png</texture>
+    			<texture>gris.png</texture>
     			<aspectratio>strecht</aspectratio>
                     </control>
                     <control type="label">

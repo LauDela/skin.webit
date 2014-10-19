@@ -218,7 +218,7 @@
                 <content>
                     <item id="1">
                         <label>13005</label>
-                        <property name="label3">Gauche pour sous menu</property>
+                        <property name="label3"></property>
                         <property name="sub">rouge.png</property>
                         <onclick>ActivateWindow(shutdownmenu)</onclick>
                         <visible>!Skin.HasSetting(HideShutdown)</visible>
@@ -233,7 +233,7 @@
                         <label>2</label>
                         <onclick>ActivateWindow(Music,Artists,return)</onclick>
                         <label2>$INFO[Window(Home).Property(Music.ArtistsCount)]</label2>
-                        <property name="label3">Gauche pour sous menu</property>
+                        <property name="label3"></property>
                         <property name="sub">orange.png</property>
                         <visible>!Skin.HasSetting(HideMusic)</visible>
                         <thumb>icons/music2.png</thumb>
@@ -241,7 +241,7 @@
                     <item id="3">
                         <label>342</label>
                         <label2>$INFO[Window(Home).Property(Movies.Count)]</label2>
-                        <property name="label3">Gauche pour sous menu</property>
+                        <property name="label3"></property>
                         <property name="sub">bleu.png</property>
                         <onclick>ActivateWindow(Videos,MovieTitles,return)</onclick>
                         <visible>Library.HasContent(Movies)</visible>
@@ -300,6 +300,12 @@
                         <label>31015</label>
                         <onclick>ActivateWindow(PVR)</onclick>
                         <visible>System.GetBool(pvrmanager.enabled)</visible>
+                        <thumb>icons/tv.png</thumb>
+                    </item>
+                    <item id="15">
+                        <label>Now Playing</label>
+                        <onclick>ActivateWindow(visualisation)</onclick>
+                        <visible>Player.HasAudio</visible>
                         <thumb>icons/tv.png</thumb>
                     </item>
                 </content>
@@ -619,7 +625,7 @@
 		<top>0</top>
 		<width>1620</width>
 		<height>60</height>
-                <visible>Player.HasMedia</visible>
+                <visible>Player.HasAudio</visible>
 		<!-- Background -->
 		<control type="image">
                     <width>380</width>

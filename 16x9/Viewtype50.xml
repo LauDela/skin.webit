@@ -44,7 +44,7 @@
                         <left>400</left>
                         <top>99</top>
                         <width>400</width>
-                        <height>1080</height>
+                        <height>980</height>
                         <onup condition="Player.HasMedia">1001</onup>
                         <ondown></ondown>
                         <onleft>501</onleft>
@@ -214,7 +214,7 @@
                             <texture>$INFO[ListItem.thumb]</texture>
                             <texture border="5">bleu_c.png</texture>
                             <aspectratio>stretch</aspectratio>
-                            <visible>Container.Content(movies)|Container.Content(tvshows)</visible>
+                            <visible>Container.Content(movies)|Container.Content(tvshows)|Container.Content(seasons)</visible>
                         </control>
                         <control type="image">
                             <left>0</left>

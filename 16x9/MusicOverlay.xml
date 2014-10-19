@@ -2,6 +2,9 @@
 <window id="2903">
     <!--<onload>AlarmClock(MusicOSD,ActivateWindow(musicosd),00:01,silent)</onload> 
     <onunload>CancelAlarm(MusicOSD,true)</onunload>  -->
+    <onload condition="!Control.IsVisible(501)">ActivateWindow(musicplaylist)</onload>
+    <onload condition="System.HasAddon(script.artistslideshow)+!Control.IsVisible(501)">RunScript(script.artistslideshow)</onload>
+
     <controls>
 	<!-- musicoverlay -->
 	 <allowoverlay>yes</allowoverlay>
@@ -10,6 +13,7 @@
             <control type="group">
                 <left>0</left>
                 <top>0</top>
+                <visible>!Window.IsActive(visualisation)</visible>
                 <control type="image">
                     <left>0</left>
                     <top>0</top>

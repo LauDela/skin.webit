@@ -1,293 +1,351 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<!-- visualisation -->
-	<defaultcontrol>1001</defaultcontrol>
-	<onload condition="System.HasAddon(script.artistslideshow)">RunScript(script.artistslideshow)</onload>
-       
-
+	<allowoverlay>yes</allowoverlay>
+	<coordinates>
+		<system>1</system>
+		<left>0</left>
+		<top>0</top>
+	</coordinates>
+	
 	<controls>
-                
-		<!-- Visualisation -->
-		<control type="visualisation" id="2">
-			<visible>Player.HasAudio</visible>
-		</control>
-
-		<!-- Artist slideshow -->
-                <control type="image">
-                    <left>0</left>
-                    <top>-740</top>
-                    <width>600</width>        
-                    <aspectratio>keep</aspectratio>
-                    <texture>$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
-                    <visible>!IsEmpty(Window.Property(ArtistSlideshowRefresh))</visible>
-                </control>
-		<control type="multiimage">
-                        <left>0</left>
-                        <top>-740</top>
-                        <width>600</width>
-                        <imagepath fallback="$INFO[MusicPlayer.Property(Fanart_Image)]" background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
-			<aspectratio>keep</aspectratio>
-			<timeperimage>10000</timeperimage>
-			<fadetime>2000</fadetime>
-			<randomize>true</randomize>
-                        <visible>IsEmpty(Window.Property(ArtistSlideshowRefresh))</visible>
-			<visible>Player.HasAudio + System.HasAddon(script.artistslideshow)</visible>
-			<animation effect="fade" start="0" end="100" time="300">Visible</animation>
-                        <animation effect="fade" start="100" end="0" time="300">Hidden</animation>
-		</control>
-                <control type="label">
-                    <left>10</left>
-                    <top>250</top>
-                    <width>600</width>
-                    <height>80</height>
-                    <label>$INFO[MusicPlayer.Artist]</label>
-                    <font>Font42</font>
-                    <textcolor>Blanc</textcolor>
-                    <align>left</align>
-                </control>
-                <control type="image">
-                    <left>600</left>
-                    <top>0</top>
-                    <width>900</width>
-                    <height>1080</height>
-                    <texture background="true">blanc.png</texture>
-                    <aspectratio>stetch</aspectratio>
-        	</control>
-                <control type="image">
-                    <left>1500</left>
-                    <top>0</top>
-                    <width>500</width>
-                    <height>1080</height>
-                    <texture background="true">bg12.jpg</texture>
-                    <aspectratio>stretch</aspectratio>
-        	</control>
 		
-                
-                <control type="image">
-                    <description>Cover Image</description>
-                    <left>630</left>
-                    <top>54</top>
-                    <width>200</width>
-                    <height>200</height>
-                    <texture diffuse="default-diffuse.png">$INFO[MusicPlayer.Cover]</texture>
-                    <aspectratio>stretch</aspectratio>
-		</control>
-
-                <control type="group">
-                    <left>20</left>
-                    <top>370</top>
-                          
-                    <control type="textbox"> <!--artist bio-->
-                        <left>0</left>
-                        <top>0</top>
-                        <width>500</width>
-                        <height>260</height>
-                        <font>Font25R</font>
-                        <align>left</align>
-                        <label>$INFO[MusicPlayer.Property(Artist_Description)]</label>
-                        <textcolor>Blanc</textcolor>
-                    </control>
-                    <control type="image">
-                        <description>barre</description>
-                        <left>0</left>
-                        <top>280</top>
-                        <width>500</width>
-                        <height>1</height>
-                        <texture>blanc.png</texture>
-                        <aspectratio>stretch</aspectratio>
-                    </control>
-
-                    <control type="textbox"> <!--album description-->
-                        <left>0</left>
-                        <top>300</top>
-                        <width>500</width>
-                        <height>260</height>
-                        <font>Font25R</font>
-                        <align>left</align>
-                        <label>$INFO[MusicPlayer.Property(Album_Description)]</label>
-                        <textcolor>Blanc</textcolor>
-                    </control>                
-                </control>
-                
-                
-                
-                
-                
-                <!--MINI PLAYER-->
-                <!-- Background -->
-		<control type="image">
-                    <left>1500</left>
-                    <top>0</top>            
-                    <width>500</width>
-                    <height>100</height>
-                    <texture>bleuff.png</texture>
-		</control>
-
-                <control type="group">
-                    <left>1520</left>
-                    <top>0</top>
-                    <width>1620</width>
-                    <height>60</height>
-                    <visible>Player.HasAudio</visible>
-		
-                    <!-- Controls -->
-                    <control type="grouplist">
-                        <left>10</left>
-                        <top>20</top>
-                        <width>360</width>
-                        <height>60</height>
-                        <itemgap>0</itemgap>
-                        <onleft>110</onleft>
-                        <onright>7</onright>
-                        <onup></onup>
-                        <ondown>SetFocus(51)</ondown>
-                        <orientation>horizontal</orientation>
-
-                        <!-- Play/Pause -->
-                        <control type="togglebutton" id="1001">
-                            <width>60</width>
-                            <height>60</height>
-                            <texturefocus>osd/OSDPauseFO.png</texturefocus>
-                            <texturenofocus>osd/OSDPauseNF.png</texturenofocus>
-                            <usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
-                            <alttexturefocus>osd/OSDPlayFO.png</alttexturefocus>
-                            <alttexturenofocus>osd/OSDPlayNF.png</alttexturenofocus>
-                            <onclick>PlayerControl(Play)</onclick>
-                        </control>
-                        <!-- Stop -->
-                        <control type="button" id="1002">
-                            <width>60</width>
-                            <height>60</height>
-                            <texturefocus>osd/OSDStopFO.png</texturefocus>
-                            <texturenofocus>osd/OSDStopNF.png</texturenofocus>
-                            <onclick>PlayerControl(Stop)</onclick>
+		<!-- media infos -->
+		<control type="group">
+			<posx>200</posx>
+			<posy>50</posy>
+			
+			
+			<control type="label" id="200">
+				<description>Scraper Label</description>
+				<posx>846</posx>
+				<posy>34</posy>
+				<width>300</width>
+				<height>20</height>
+				<posx>600</posx>
+				<label>-</label>
+				<font>font13</font>
+				<align>right</align>
+				<textcolor>Noir</textcolor>
+				<disabledcolor>Bleu</disabledcolor>
 			</control>
-                        <!-- Skip Back -->
-                        <control type="button" id="1003">
-                            <width>60</width>
-                            <height>60</height>
-                            <texturefocus>osd/OSDPrevTrackFO.png</texturefocus>
-                            <texturenofocus>osd/OSDPrevTrackNF.png</texturenofocus>
-                            <onclick>PlayerControl(Previous)</onclick>
-                        </control>
-                        <!-- Rewind -->
-                        <control type="button" id="1004">
-                            <width>60</width>
-                            <height>60</height>
-                            <texturefocus>osd/OSDRewindFO.png</texturefocus>
-                            <texturenofocus>osd/OSDRewindNF.png</texturenofocus>
-                            <onclick>PlayerControl(Rewind)</onclick>
-                        </control>
-                        <!-- Fast Forward -->
-                        <control type="button" id="1005">
-                            <width>60</width>
-                            <height>60</height>
-                            <texturefocus>osd/OSDForwardFO.png</texturefocus>
-                            <texturenofocus>osd/OSDForwardNF.png</texturenofocus>
-                            <onclick>PlayerControl(Forward)</onclick>
-                        </control>
-                        <!-- Next -->
-                        <control type="button" id="1006">
-                            <width>60</width>
-                            <height>60</height>
-                            <texturefocus>osd/OSDNextTrackFO.png</texturefocus>
-                            <texturenofocus>osd/OSDNextTrackNF.png</texturenofocus>
-                            <onclick>PlayerControl(Next)</onclick>
-                        </control>
-
+			
+		</control>
+		
+		<!-- ** Required ** Do not change <id> or <type> -->
+		<control type="list" id="110">
+			<left>620</left>
+			<top>270</top>
+			<width>812</width>
+			<height>690</height>
+			<onleft>111</onleft>
+			<onright>1011</onright>
+			<onup>999</onup>
+			<ondown>110</ondown>
+			<viewtype label="535">list</viewtype>
+			<pagecontrol>111</pagecontrol>
+			<scrolltime>200</scrolltime>
+			<itemlayout height="29">
+				<control type="label">
+					<posx>10</posx>
+					<posy>3</posy>
+					<width>796</width>
+					<height>22</height>
+					<info>ListItem.Label</info>
+					<font>font13</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>Noir</textcolor>
+				</control>
+			</itemlayout>
+			<focusedlayout height="29">
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>812</width>
+					<height>29</height>
+					<texture>default-list-focus.png</texture>
+					<visible>Control.HasFocus(110)</visible>
+				</control>
+				<control type="label">
+					<posx>10</posx>
+					<posy>3</posy>
+					<width>796</width>
+					<height>22</height>
+					<info>ListItem.Label</info>
+					<font>font13</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>Rouge</textcolor>
+				</control>
+			</focusedlayout>
+		</control>
+		<control type="spincontrol" id="111">
+			<description>Next page button</description>
+			<left>1490</left>
+			<top>1020</top>
+			<width>25</width>
+			<height>22</height>
+			<font>font13</font>
+			<align>right</align>
+			<subtype>page</subtype>
+			<onleft>110</onleft>
+			<onright>110</onright>
+			<ondown>999</ondown>
+			<onup>110</onup>
+			<textcolor>Noir</textcolor>
+			<textureup>default-scroll-up.png</textureup>
+			<texturedown>default-scroll-down.png</texturedown>
+			<textureupfocus>default-scroll-up-focus.png</textureupfocus>
+			<texturedownfocus>default-scroll-down-focus.png</texturedownfocus>
+			<showonepage>false</showonepage>
+			<visible>Control.IsVisible(110)</visible>
+		</control>
+		<!-- ** Required ** Do not change <id> or <type> -->
+		<control type="list" id="120">
+			<posx>234</posx>
+			<posy>270</posy>
+			<width>812</width>
+			<height>290</height>
+			<onleft>121</onleft>
+			<onright>121</onright>
+			<onup>120</onup>
+			<ondown>120</ondown>
+			<viewtype label="535">list</viewtype>
+			<pagecontrol>121</pagecontrol>
+			<scrolltime>200</scrolltime>
+			<itemlayout height="29">
+				<control type="label">
+					<posx>10</posx>
+					<posy>3</posy>
+					<width>796</width>
+					<height>22</height>
+					<info>ListItem.Label</info>
+					<font>font13</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>Noir</textcolor>
+				</control>
+			</itemlayout>
+			<focusedlayout height="29">
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>812</width>
+					<height>29</height>
+					<texture>default-list-focus.png</texture>
+					<visible>Control.HasFocus(120)</visible>
+				</control>
+				<control type="label">
+					<posx>10</posx>
+					<posy>3</posy>
+					<width>796</width>
+					<height>22</height>
+					<info>ListItem.Label</info>
+					<font>font13</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>FFEB9E17</textcolor>
+				</control>
+			</focusedlayout>
+		</control>
+		<control type="spincontrol" id="121">
+			<description>Next page button</description>
+			<posx>996</posx>
+			<posy>565</posy>
+			<width>25</width>
+			<height>22</height>
+			<font>font13</font>
+			<align>right</align>
+			<subtype>page</subtype>
+			<textcolor>FFFFFFFF</textcolor>
+			<onleft>120</onleft>
+			<onright>120</onright>
+			<ondown>120</ondown>
+			<onup>120</onup>
+			<textureup>default-scroll-up.png</textureup>
+			<texturedown>default-scroll-down.png</texturedown>
+			<textureupfocus>default-scroll-up-focus.png</textureupfocus>
+			<texturedownfocus>default-scroll-down-focus.png</texturedownfocus>
+			<showonepage>false</showonepage>
+			<visible>Control.IsVisible(120)</visible>
+		</control>
+                
+                
+                <!--MINI PLAYER + Playlist-->
+                <control type="group">
+                    <!-- Background -->
+                    <control type="image">
+                        <left>1500</left>
+                        <top>0</top>            
+                        <width>500</width>
+                        <height>100</height>
+                        <texture>bleuff.png</texture>
                     </control>
 
-                    <!-- Options -->
-                    <control type="grouplist">
-                        <right>0</right>
-                        <width>420</width>
-                        <height>60</height>
-                        <align>right</align>
-                        <itemgap>0</itemgap>
-                        <onleft>1006</onleft>
-                        <onright>1001</onright>
-                        <onup></onup>
-                        <ondown></ondown>
-                        <orientation>horizontal</orientation>
-                        <!-- Repeat -->
-                        <control type="button" id="1007">
-                            <width>60</width>
-                            <height>60</height>
-                            <texturefocus>-</texturefocus>
-                            <texturenofocus>-</texturenofocus>
-                            <onclick>PlayerControl(Repeat)</onclick>
-                        </control>
-                        <!-- Random -->
-                        <control type="togglebutton" id="1008">
-                            <width>60</width>
-                            <height>60</height>
-                            <texturefocus>osd/OSDRandomOffFO.png</texturefocus>
-                            <texturenofocus>osd/OSDRandomOffNF.png</texturenofocus>
-                            <alttexturefocus>osd/OSDRandomOnFO.png</alttexturefocus>
-                            <alttexturenofocus>osd/OSDRandomOnNF.png</alttexturenofocus>
-                            <onclick>PlayerControl(Random)</onclick>
-                        </control>
-
-                    </control>
-
-                    <!-- Repeat images -->
                     <control type="group">
-                        <right>60</right>
-                        <width>60</width>
+                        <left>1520</left>
+                        <top>0</top>
+                        <width>1620</width>
                         <height>60</height>
-                        <control type="image">
-                            <width>60</width>
+                        <visible>Player.HasMedia</visible>
+		
+                        <!-- Controls -->
+                        <control type="grouplist">
+                            <left>10</left>
+                            <top>20</top>
+                            <width>360</width>
                             <height>60</height>
-                            <texture>osd/OSDRepeatNF.png</texture>
-                            <visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
-                            <visible>!Control.HasFocus(1007)</visible>
-                        </control>
-                        <control type="image">
-                            <width>60</width>
-                            <height>60</height>
-                            <texture>osd/OSDRepeatFO.png</texture>
-                            <visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
-                            <visible>Control.HasFocus(1007)</visible>
-                        </control>
-                        <control type="image">
-                            <width>60</width>
-                            <height>60</height>
-                            <texture>osd/OSDRepeatOneNF.png</texture>
-                            <visible>Playlist.IsRepeatOne</visible>
-                            <visible>!Control.HasFocus(1007)</visible>
-                        </control>
-                        <control type="image">
-                            <width>60</width>
-                            <height>60</height>
-                            <texture>osd/OSDRepeatOneFO.png</texture>
-                            <visible>Playlist.IsRepeatOne</visible>
-                            <visible>Control.HasFocus(1007)</visible>
-                        </control>
-                        <control type="image">
-                            <width>60</width>
-                            <height>60</height>
-                            <texture>osd/OSDRepeatAllNF.png</texture>
-                            <visible>Playlist.IsRepeat</visible>
-                            <visible>!Control.HasFocus(1007)</visible>
-                        </control>
-                        <control type="image">
-                            <width>60</width>
-                            <height>60</height>
-                            <texture>osd/OSDRepeatAllFO.png</texture>
-                            <visible>Playlist.IsRepeat</visible>
-                            <visible>Control.HasFocus(1007)</visible>
-                        </control>
+                            <itemgap>0</itemgap>
+                            <onleft>110</onleft>
+                            <onright>7</onright>
+                            <onup></onup>
+                            <ondown>SetFocus(321)</ondown>
+                            <orientation>horizontal</orientation>
 
-                    </control>
+                                <!-- Play/Pause -->
+                                <control type="togglebutton" id="1011">
+                                    <width>60</width>
+                                    <height>60</height>
+                                    <texturefocus>osd/OSDPauseFO.png</texturefocus>
+                                    <texturenofocus>osd/OSDPauseNF.png</texturenofocus>
+                                    <usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+                                    <alttexturefocus>osd/OSDPlayFO.png</alttexturefocus>
+                                    <alttexturenofocus>osd/OSDPlayNF.png</alttexturenofocus>
+                                    <onclick>PlayerControl(Play)</onclick>
+                                </control>
+                                <!-- Stop -->
+                                <control type="button" id="1012">
+                                    <width>60</width>
+                                    <height>60</height>
+                                    <texturefocus>osd/OSDStopFO.png</texturefocus>
+                                    <texturenofocus>osd/OSDStopNF.png</texturenofocus>
+                                    <onclick>PlayerControl(Stop)</onclick>
+                                </control>
+                                <!-- Skip Back -->
+                                <control type="button" id="1013">
+                                    <width>60</width>
+                                    <height>60</height>
+                                    <texturefocus>osd/OSDPrevTrackFO.png</texturefocus>
+                                    <texturenofocus>osd/OSDPrevTrackNF.png</texturenofocus>
+                                    <onclick>PlayerControl(Previous)</onclick>
+                                </control>
+                                <!-- Rewind -->
+                                <control type="button" id="1014">
+                                    <width>60</width>
+                                    <height>60</height>
+                                    <texturefocus>osd/OSDRewindFO.png</texturefocus>
+                                    <texturenofocus>osd/OSDRewindNF.png</texturenofocus>
+                                    <onclick>PlayerControl(Rewind)</onclick>
+                                </control>
+                                <!-- Fast Forward -->
+                                <control type="button" id="1015">
+                                    <width>60</width>
+                                    <height>60</height>
+                                    <texturefocus>osd/OSDForwardFO.png</texturefocus>
+                                    <texturenofocus>osd/OSDForwardNF.png</texturenofocus>
+                                    <onclick>PlayerControl(Forward)</onclick>
+                                </control>
+                                <!-- Next -->
+                                <control type="button" id="1016">
+                                    <width>60</width>
+                                    <height>60</height>
+                                    <texturefocus>osd/OSDNextTrackFO.png</texturefocus>
+                                    <texturenofocus>osd/OSDNextTrackNF.png</texturenofocus>
+                                    <onclick>PlayerControl(Next)</onclick>
+                                </control>
 
-                </control>
-                <!--FIN MINI PLAYER-->    
+                            </control>
 
-                <!--PLAYLIST-->
+                            <!-- Options -->
+                            <control type="grouplist">
+                                <right>0</right>
+                                <width>420</width>
+                                <height>60</height>
+                                <align>right</align>
+                                <itemgap>0</itemgap>
+                                <onleft>1016</onleft>
+                                <onright>1011</onright>
+                                <onup></onup>
+                                <ondown></ondown>
+                                <orientation>horizontal</orientation>
+                                <!-- Repeat -->
+                                <control type="button" id="1017">
+                                    <width>60</width>
+                                    <height>60</height>
+                                    <texturefocus>-</texturefocus>
+                                    <texturenofocus>-</texturenofocus>
+                                    <onclick>PlayerControl(Repeat)</onclick>
+                                </control>
+                                <!-- Random -->
+                                <control type="togglebutton" id="1018">
+                                    <width>60</width>
+                                    <height>60</height>
+                                    <texturefocus>osd/OSDRandomOffFO.png</texturefocus>
+                                    <texturenofocus>osd/OSDRandomOffNF.png</texturenofocus>
+                                    <alttexturefocus>osd/OSDRandomOnFO.png</alttexturefocus>
+                                    <alttexturenofocus>osd/OSDRandomOnNF.png</alttexturenofocus>
+                                    <onclick>PlayerControl(Random)</onclick>
+                                </control>
+
+                            </control>
+
+                            <!-- Repeat images -->
+                            <control type="group">
+                                <right>60</right>
+                                <width>60</width>
+                                <height>60</height>
+                                <control type="image">
+                                    <width>60</width>
+                                    <height>60</height>
+                                    <texture>osd/OSDRepeatNF.png</texture>
+                                    <visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
+                                    <visible>!Control.HasFocus(1017)</visible>
+                                </control>
+                                <control type="image">
+                                    <width>60</width>
+                                    <height>60</height>
+                                    <texture>osd/OSDRepeatFO.png</texture>
+                                    <visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
+                                    <visible>Control.HasFocus(1017)</visible>
+                                </control>
+                                <control type="image">
+                                    <width>60</width>
+                                    <height>60</height>
+                                    <texture>osd/OSDRepeatOneNF.png</texture>
+                                    <visible>Playlist.IsRepeatOne</visible>
+                                    <visible>!Control.HasFocus(1017)</visible>
+                                </control>
+                                <control type="image">
+                                    <width>60</width>
+                                    <height>60</height>
+                                    <texture>osd/OSDRepeatOneFO.png</texture>
+                                    <visible>Playlist.IsRepeatOne</visible>
+                                    <visible>Control.HasFocus(1017)</visible>
+                                </control>
+                                <control type="image">
+                                    <width>60</width>
+                                    <height>60</height>
+                                    <texture>osd/OSDRepeatAllNF.png</texture>
+                                    <visible>Playlist.IsRepeat</visible>
+                                    <visible>!Control.HasFocus(1017)</visible>
+                                </control>
+                                <control type="image">
+                                    <width>60</width>
+                                    <height>60</height>
+                                    <texture>osd/OSDRepeatAllFO.png</texture>
+                                    <visible>Playlist.IsRepeat</visible>
+                                    <visible>Control.HasFocus(1017)</visible>
+                                </control>
+
+                            </control>
+                    </control>    
+            </control>
+            <!--FIN MINI PLAYER-->   
+            <!--PLAYLIST-->
                 <control type="group">
                     <left>1500</left>
                     <top>100</top>
-                    <visible>!Control.IsVisible(321)</visible>
+                    <visible>!Control.IsVisible(320)</visible>
                     <control type="image">
                         <left>0</left>
                         <top>0</top>
@@ -296,14 +354,14 @@
                         <texture>menu.png</texture>
                         <aspectratio>stretch</aspectratio>
                     </control>
-                    <control type="list" id="320">
+                    <control type="list" id="321">
                         <left>0</left>
                         <top>0</top>
                         <width>400</width>
                         <height>980</height>
-                        <onup condition="Player.HasMedia">1001</onup>
+                        <onup>1011</onup>
                         <ondown></ondown>
-                        <onleft>501</onleft>
+                        <onleft>110</onleft>
                         <focusposition>0</focusposition>
                         <defaultcontrol>0</defaultcontrol>
                         <orientation>vertical</orientation>
@@ -358,19 +416,19 @@
                                     <texture>menu_select.png</texture>
                                     <aspectratio>strecht</aspectratio>
                                 </control>
-                                <control type="progress">
-                                    <description>Progressbar</description>
-                                    <left>10</left>
-                                    <top>95</top>
-                                    <width>450</width>
-                                    <height>5</height>
-                                    <info>Player.Progress</info>
-                                    <texturebg>gris.png</texturebg>
-                                    <midtexture>rouge.png</midtexture>                                
-                                    <visible>StringCompare(ListItem.Property(foo),premier)</visible>
-                                </control>
-
                             </control>
+                            <control type="progress">
+                                <description>Progressbar</description>
+                                <left>10</left>
+                                <top>95</top>
+                                <width>450</width>
+                                <height>5</height>
+                                <info>Player.Progress</info>
+                                <texturebg>gris.png</texturebg>
+                                <midtexture>rouge.png</midtexture>                                
+                                <visible>StringCompare(ListItem.Property(foo),premier)</visible>
+                            </control>
+
                         </itemlayout>
 
                         <focusedlayout width="401" height="100">
@@ -381,7 +439,7 @@
                                 <height>100</height>
                                 <texture>menu_select.png</texture>
                                 <aspectratio>strecht</aspectratio>
-                                <visible>[Control.HasFocus(320)]</visible>
+                                <visible>[Control.HasFocus(321)]</visible>
                             </control>
                             <control type="image">
                                 <left>0</left>
@@ -440,7 +498,6 @@
                                 <midtexture>rouge.png</midtexture>                                
                                 <visible>StringCompare(ListItem.Property(foo),premier)</visible>
                             </control>
-
 
 
                         </focusedlayout>
@@ -580,16 +637,6 @@
                     </control>
                 </control>
                 <!--FIN PLAYLIST-->
-                
-
-                <control type="image">
-                    <left>0</left>
-                    <top>1075</top>
-                    <width>3000</width>
-                    <height>5</height>
-                    <texture>rouge2.png</texture>
-                    <aspectratio>strecht</aspectratio>
-                </control>
+             
 	</controls>
-
 </window>
